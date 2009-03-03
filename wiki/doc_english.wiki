@@ -1,0 +1,86 @@
+
+= Editable jquery tree with PHP Codes =
+This software is a tree structure runs in web browsers 
+and completes its function, like add item,
+change name, drag & drop and delete item, 
+by using ajax requests, PHP and MySQL so server has to have
+PHP and MySQL softwares to make this software run.
+                                                                                         
+This software also uses <a href='http://jquery.com'>jquery javascript framework</a>,
+<a href='http://news.kg/wp-content/uploads/tree/'>simple tree plugin.</a> 
+
+== INSTALL ==
+Set your database parameters in 'includes/config.php',
+also you can change TREE_TABLE_PREFIX macro whose default value is 'tree'.<br/>
+Then create table according to TREE_TABLE_PREFIX macro 
+{{{
+ CREATE TABLE  `tree_elements` (
+ `Id` int(10) unsigned NOT NULL auto_increment,
+ `name` varchar(45) NOT NULL,
+ `position` int(10) unsigned NOT NULL default '0',
+ `ownerEl` int(10) unsigned NOT NULL default '0' COMMENT 'parent',
+ `slave` binary(1) NOT NULL default '0',
+ PRIMARY KEY  (`Id`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+}}}  
+
+== Features ==  
+=== Add item ===   
+<img src="images/help/en/addElement.jpg"  style="float:left;"/>
+Right click a item to open the menu, then click
+'Add File' or 'Add Folder' to add a child item under the right clicked item     <br />
+<div  style="clear:both"><img src="images/help/en/addElementText.jpg" style="float:left;"/> 
+<img src="images/help/en/elementAdded.jpg"  style="float:left;"/>
+Enter the new item's name into the text field, 
+then press <b>Enter</b> to send an ajax request to server and complete the operation or 
+press <b>Esc</b> to cancel the operation.                             
+
+
+=== Delete item ===
+<img src="images/help/en/deleteElement.jpg"  style="float:left;"/>
+<img src="images/help/en/deleteElementLast.jpg"  style="float:left;"/>
+Right click a item to open the menu, then click
+'Delete', it will ask whether you are sure to delete the item,
+if yes is clicked, an ajax request will be send to server to complete the operation
+after process is completed succesfully, an item will be removed from tree.
+Please not to forget that if an item is deleted, all child items beloging to it
+will be deleted recursively.
+
+
+=== Change the position of an item (Drag & Drop) ===
+<img src="images/help/en/dragElement.jpg"  style="float:left;"/> 
+<img src="images/help/en/dropElement.jpg"  style="float:left;"/>
+Use drag & drop method to change the position and order of an item.
+
+
+=== Change the name of an item ===
+<img src="images/help/en/editElement.jpg"  style="float:left;"/>
+Right click a item to open the menu, then click
+'Edit'.
+<img src="images/help/en/addElementText.jpg"  style="float:left;"/> 
+<img src="images/help/en/elementAdded.jpg"  style="float:left;"/>
+Enter the item's new name into the text field, 
+then press <b>Enter</b> to send an ajax request and complete the operation or
+press <b>Esc</b> to cancel the operation.
+
+
+
+== Support == 
+If you need support to modify and use this software,
+I can share all information I have for free,
+so feel free to <a href='mailto:ahmetmermerkaya@gmail.com'>contact me</a>
+
+== License ==
+This software is free.
+It can be modified and distributed without notification. 
+
+== Disclaimer == 
+This software guarantees nothing, use it with your own risk.
+No responsilibity is taken for any situation.
+
+== Author == 
+<a href='mailto:ahmetmermerkaya@gmail.com'>Ahmet Oguz Mermerkaya</a>
+
+mekya
+
+<a href='http://www.e-yillik.net/' class='content'>www.e-yillik.net</a>
