@@ -37,7 +37,7 @@ press <b>Esc</b> to cancel the operation.
 
 === Delete item ===
 <img src="http://sites.google.com/site/editablejquerytree/Home/deleteElement.jpg?attredirects=0"  style="float:left;"/>
-<img src="images/help/en/deleteElementLast.jpg"  style="float:left;"/>
+<img src="http://sites.google.com/site/editablejquerytree/Home/deleteElementLast.jpg?attredirects=0"  style="float:left;"/>
 Right click a item to open the menu, then click
 'Delete', it will ask whether you are sure to delete the item,
 if yes is clicked, an ajax request will be send to server to complete the operation
@@ -47,17 +47,17 @@ will be deleted recursively.
 
 
 === Change the position of an item (Drag & Drop) ===
-<img src="images/help/en/dragElement.jpg"  style="float:left;"/> 
-<img src="images/help/en/dropElement.jpg"  style="float:left;"/>
+<img src="http://sites.google.com/site/editablejquerytree/Home/dragElement.jpg?attredirects=0"  style="float:left;"/> 
+<img src="http://sites.google.com/site/editablejquerytree/Home/dropElement.jpg?attredirects=0"  style="float:left;"/>
 Use drag & drop method to change the position and order of an item.
 
 
 === Change the name of an item ===
-<img src="images/help/en/editElement.jpg"  style="float:left;"/>
+<img src="http://sites.google.com/site/editablejquerytree/Home/editElement.jpg?attredirects=0"  style="float:left;"/>
 Right click a item to open the menu, then click
 'Edit'.
-<img src="images/help/en/addElementText.jpg"  style="float:left;"/> 
-<img src="images/help/en/elementAdded.jpg"  style="float:left;"/>
+<img src="http://sites.google.com/site/editablejquerytree/Home/addElementText.jpg?attredirects=0"  style="float:left;"/> 
+<img src="http://sites.google.com/site/editablejquerytree/Home/elementAdded.jpg?attredirects=0"  style="float:left;"/>
 Enter the item's new name into the text field, 
 then press <b>Enter</b> to send an ajax request and complete the operation or
 press <b>Esc</b> to cancel the operation.
