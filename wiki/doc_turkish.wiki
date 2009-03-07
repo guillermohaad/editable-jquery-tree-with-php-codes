@@ -1,0 +1,87 @@
+= Düzenlenebilir jquery ağaç yapısı - PHP Kodlu - =
+Bu yazılım bir ağaç yapısıdır ve sahip olduğu eleman ekleme,
+isim değiştirme, sürükle-bırak ve silme işlemlerini sunucuya 
+ajax istekleri göndererek yapar. Ajax isteklerinin uygun
+şekilde işlenebilmesi için sunucunun PHP ve MySQL 
+yazılımlarına sahip olması gerekir.
+			<br/>											
+Bu yazılım ayrıca <a href='http://jquery.com'>jquery javascript çerçevesini</a>,
+simple tree eklentisini kullanır.
+                                                                                         
+This software also uses <a href='http://jquery.com'>jquery javascript framework</a>,
+<a href='http://news.kg/wp-content/uploads/tree/'>simple tree plugin.</a> 
+
+== KURULUM ==
+Veritabanı parametrelerini 'includes/config.php' dosyası içine yazınız,
+ayrıca TREE_TABLE_PREFIX makrosunu değiştirerek oluşturacağınız tablonun
+adının ön ekini değiştirmiş olursunuz. TREE_TABLE_PREFIX makrosunun varsayılan değeri 'tree' dir. <br/>
+Tabloyu TREE_TABLE_PREFIX makrosuna göre oluşturun, eğer bu değeri 
+değiştirmedi iseniz aşağıdaki kodu direk kullanabilirsiniz: 
+{{{
+ CREATE TABLE  `tree_elements` (
+ `Id` int(10) unsigned NOT NULL auto_increment,
+ `name` varchar(45) NOT NULL,
+ `position` int(10) unsigned NOT NULL default '0',
+ `ownerEl` int(10) unsigned NOT NULL default '0' COMMENT 'parent',
+ `slave` binary(1) NOT NULL default '0',
+ PRIMARY KEY  (`Id`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+}}}  
+
+== Özellikler ==  
+=== Eleman ekleme ===   
+<img src="images/help/tr/addElement.png"  style="float:left;"/>
+Altına yeni eleman eklemek istenen elemanın üzerinde 
+tıklayarak "Dosya ekle" veya "Klasör ekle"  işlemleri seçilebilir.	<br />
+<img src="images/help/tr/addElementText.png"  style="float:left;"/> 
+<img src="images/help/elementAdded.png"  style="float:left;"/>
+Yeni dosya veya klasörünün ismi alan kutusunun içine yazdıktan sonra <b>Enter</b> tuşuna basılırsa sunucuya ajax isteği gönderilir, <b>Esc</b> tuşuna basılırsa işlem iptal edilir.                            
+
+
+=== Eleman silme ===
+<img src="images/help/tr/deleteElement.png"  style="float:left;"/>
+Silmek istenen elemanın üzerinde sağ tıklayarak  "Sil" işlemi 
+seçilir. Silme işlemi tamamlanınca ilgili eleman ağaç yapısından kaldırılacaktır. 
+Ayrıca klasör sildiğiniz zaman onun altındaki tüm elemanlarda silinmektedir.
+
+
+=== Elemanın yerini değiştirme ===
+<img src="images/help/tr/dragElement.png"  style="float:left;"/> 
+<img src="images/help/tr/dropElement.png"  style="float:left;"/>
+Sürükle-bırak yöntemi ile elemanların yerleri değiştirilebilir. Yerini
+değiştirmek istediğiniz eleman tutularak(üzerinde sol tıklayıp ve basılı tutarak) olması
+istenen yere bırakılır - farenin sol tuşu serbest bırakılır.
+
+
+=== Eleman ismini değiştirme ===
+<img src="images/help/tr/editElement.png"  style="float:left;"/>
+İsmi değiştirilmek istenen elemanın üzerinde sağ tıklayarak "Düzenle" işlemi seçilir.
+<div style="clear:both"><img src="images/help/tr/addElementText.png"  style="float:left;"/><img src="images/help/tr/elementAdded.png"  style="float:left;"/>
+Elemanın yeni ismi açılan kutunun içine yazıldıktan sonra <b>Enter</b> tuşuna basılırsa sunucuya ajax isteği gönderilir, <b>Esc</b> tuşuna basılırsa işlem iptal edilir.
+
+
+
+== Destek == 
+Eğer bu yazılım kullanırken veya değiştirirken desteğe ihtiyaç duyarsanız, 
+lütfen <a href='mailto:ahmetmermerkaya@gmail.com'>iletişime</a> geçmek için çekinmeyiniz,
+elimden geldiğince yardım etmekten mutluluk duyarım.
+
+
+== License ==
+This software is free.
+It can be modified and distributed without notification. 
+
+== Tekzip == 
+Bu yazılım hiç bir şeyi garanti etmez, yazılımı kullanırken bütün
+sorumluluk kullanana aittir.
+Herhangi bir durumda kesinlikle sorumluluk kabul edilmez..
+
+== Yazar == 
+<a href='mailto:ahmetmermerkaya@gmail.com'>Ahmet Oguz Mermerkaya</a>
+
+mekya
+
+<a href='http://www.e-yillik.net/' class='content'>www.e-yillik.net</a>
+
+
+
