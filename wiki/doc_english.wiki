@@ -26,6 +26,7 @@ Then create table according to TREE_TABLE_PREFIX macro
 == Features ==  
 === Add item ===   
 <img src="http://sites.google.com/site/editablejquerytree/Home/addElement.jpg?attredirects=0"  style="float:left;"/>
+<br/>
 Right click a item to open the menu, then click
 'Add File' or 'Add Folder' to add a child item under the right clicked item     <br />
 <div  style="clear:both"><img src="http://sites.google.com/site/editablejquerytree/Home/addElementText.jpg?attredirects=0" style="float:left;"/> 
