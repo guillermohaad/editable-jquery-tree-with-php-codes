@@ -30,6 +30,7 @@ Right click a item to open the menu, then click
 'Add File' or 'Add Folder' to add a child item under the right clicked item     <br />
 <div  style="clear:both"><img src="http://sites.google.com/site/editablejquerytree/Home/addElementText.jpg?attredirects=0" style="float:left;"/> 
 <img src="http://sites.google.com/site/editablejquerytree/Home/elementAdded.jpg?attredirects=0"  style="float:left;"/>
+<br/>
 Enter the new item's name into the text field, 
 then press <b>Enter</b> to send an ajax request to server and complete the operation or 
 press <b>Esc</b> to cancel the operation.                             
