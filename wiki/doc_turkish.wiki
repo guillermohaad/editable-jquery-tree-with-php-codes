@@ -6,11 +6,8 @@ ajax istekleri göndererek yapar. Ajax isteklerinin uygun
 yazılımlarına sahip olması gerekir.
 			<br/>											
 Bu yazılım ayrıca <a href='http://jquery.com'>jquery javascript çerçevesini</a>,
-simple tree eklentisini kullanır.
+<a href='http://news.kg/wp-content/uploads/tree/'>simple tree eklentisini</a> kullanır.
                                                                                          
-This software also uses <a href='http://jquery.com'>jquery javascript framework</a>,
-<a href='http://news.kg/wp-content/uploads/tree/'>simple tree plugin.</a> 
-
 == KURULUM ==
 Veritabanı parametrelerini 'includes/config.php' dosyası içine yazınız,
 ayrıca TREE_TABLE_PREFIX makrosunu değiştirerek oluşturacağınız tablonun
@@ -82,6 +79,4 @@ Herhangi bir durumda kesinlikle sorumluluk kabul edilmez..
 mekya
 
 <a href='http://www.e-yillik.net/' class='content'>www.e-yillik.net</a>
-
-
 
