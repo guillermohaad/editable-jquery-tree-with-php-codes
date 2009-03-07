@@ -61,6 +61,7 @@ Use drag & drop method to change the position and order of an item.
 <br/>
 Right click a item to open the menu, then click
 'Edit'.
+<br/>
 <img src="http://sites.google.com/site/editablejquerytree/Home/addElementText.jpg?attredirects=0"  style="float:left;"/> 
 <img src="http://sites.google.com/site/editablejquerytree/Home/elementAdded.jpg?attredirects=0"  style="float:left;"/>
 <br/>
