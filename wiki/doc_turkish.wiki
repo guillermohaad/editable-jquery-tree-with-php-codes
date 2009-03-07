@@ -1,4 +1,4 @@
-= Düzenlenebilir jquery ağaç yapısı - PHP Kodlu - =
+= Düzenlenebilir jquery ağaç yapısı - PHP Kodlu  =
 Bu yazılım bir ağaç yapısıdır ve sahip olduğu eleman ekleme,
 isim değiştirme, sürükle-bırak ve silme işlemlerini sunucuya 
 ajax istekleri göndererek yapar. Ajax isteklerinin uygun
@@ -64,9 +64,9 @@ lütfen <a href='mailto:ahmetmermerkaya@gmail.com'>iletişime</a> geçmek için 
 elimden geldiğince yardım etmekten mutluluk duyarım.
 
 
-== License ==
-This software is free.
-It can be modified and distributed without notification. 
+== Lisans ==
+Bu yazılım ücretsizdir,
+istenildiği gibi değiştirilebilir ve dağıtılabilir.
 
 == Tekzip == 
 Bu yazılım hiç bir şeyi garanti etmez, yazılımı kullanırken bütün
@@ -79,4 +79,3 @@ Herhangi bir durumda kesinlikle sorumluluk kabul edilmez..
 mekya
 
 <a href='http://www.e-yillik.net/' class='content'>www.e-yillik.net</a>
-
