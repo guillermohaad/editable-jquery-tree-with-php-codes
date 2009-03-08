@@ -31,7 +31,7 @@ değiştirmedi iseniz aşağıdaki kodu direk kullanabilirsiniz:
 Altına yeni eleman eklemek istenen elemanın üzerinde 
 tıklayarak "Dosya ekle" veya "Klasör ekle"  işlemleri seçilebilir.	<br />
 <img src="http://lh4.ggpht.com/_ZULEwNxx018/SbPBu2dZjWI/AAAAAAAAAFU/YXSrkEc7Rio/addElementText.png"  style="float:left;"/> 
-<img src="http://lh3.ggpht.com/_ZULEwNxx018/SbPYnp1ZNsI/AAAAAAAAAF8/oBsEiqzUrAA/s144/elementAdded.png"  style="float:left;"/>
+<img src="http://lh3.ggpht.com/_ZULEwNxx018/SbPYnp1ZNsI/AAAAAAAAAF8/oBsEiqzUrAA/elementAdded.png"  style="float:left;"/>
 Yeni dosya veya klasörünün ismi alan kutusunun içine yazdıktan sonra <b>Enter</b> tuşuna basılırsa sunucuya ajax isteği gönderilir, <b>Esc</b> tuşuna basılırsa işlem iptal edilir.                            
 
 
@@ -51,9 +51,9 @@ istenen yere bırakılır - farenin sol tuşu serbest bırakılır.
 
 
 === Eleman ismini değiştirme ===
-
+<img src="http://lh4.ggpht.com/_ZULEwNxx018/SbPBu2dZjWI/AAAAAAAAAFU/YXSrkEc7Rio/addElementText.png"  style="float:left;"/>
 İsmi değiştirilmek istenen elemanın üzerinde sağ tıklayarak "Düzenle" işlemi seçilir.
-<div style="clear:both"><img src="http://lh4.ggpht.com/_ZULEwNxx018/SbPBu2dZjWI/AAAAAAAAAFU/YXSrkEc7Rio/s144/addElementText.png"  style="float:left;"/><img src="http://lh3.ggpht.com/_ZULEwNxx018/SbPYnp1ZNsI/AAAAAAAAAF8/oBsEiqzUrAA/elementAdded.png"  style="float:left;"/>
+<div style="clear:both"><img src="http://lh3.ggpht.com/_ZULEwNxx018/SbPYnp1ZNsI/AAAAAAAAAF8/oBsEiqzUrAA/elementAdded.png"  style="float:left;"/>
 Elemanın yeni ismi açılan kutunun içine yazıldıktan sonra <b>Enter</b> tuşuna basılırsa sunucuya ajax isteği gönderilir, <b>Esc</b> tuşuna basılırsa işlem iptal edilir.
 
 
