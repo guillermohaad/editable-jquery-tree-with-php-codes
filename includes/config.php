@@ -22,6 +22,7 @@ $dbName = "eyillik_demo";
 
 define ("TREE_TABLE_PREFIX", "tree");
 
+// if you want to run it in demo mode, enable the macro below...
 //define("DEMO_MODE", true);
 
 define ("FAILED", "-1");  // Don't edit
