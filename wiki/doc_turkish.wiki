@@ -27,16 +27,16 @@ değiştirmedi iseniz aşağıdaki kodu direk kullanabilirsiniz:
 
 == Özellikler ==  
 === Eleman ekleme ===   
-<img src="http://lh5.ggpht.com/_ZULEwNxx018/SbPBunOb-gI/AAAAAAAAAFM/mF2AC0Ux8Ww/addElement.png"  style="float:left;"/>
+<img src="http://lh5.ggpht.com/_ZULEwNxx018/SbPBunOb-gI/AAAAAAAAAFM/mF2AC0Ux8Ww/addElement.png"  style="float:left;"/><br/>
 Altına yeni eleman eklemek istenen elemanın üzerinde 
 tıklayarak "Dosya ekle" veya "Klasör ekle"  işlemleri seçilebilir.	<br />
 <img src="http://lh4.ggpht.com/_ZULEwNxx018/SbPBu2dZjWI/AAAAAAAAAFU/YXSrkEc7Rio/addElementText.png"  style="float:left;"/> 
-<img src="http://lh3.ggpht.com/_ZULEwNxx018/SbPYnp1ZNsI/AAAAAAAAAF8/oBsEiqzUrAA/elementAdded.png"  style="float:left;"/>
+<img src="http://lh3.ggpht.com/_ZULEwNxx018/SbPYnp1ZNsI/AAAAAAAAAF8/oBsEiqzUrAA/elementAdded.png"  style="float:left;"/><br/>
 Yeni dosya veya klasörünün ismi alan kutusunun içine yazdıktan sonra <b>Enter</b> tuşuna basılırsa sunucuya ajax isteği gönderilir, <b>Esc</b> tuşuna basılırsa işlem iptal edilir.                            
 
 
 === Eleman silme ===
-<img src="http://lh3.ggpht.com/_ZULEwNxx018/SbPBvCanaFI/AAAAAAAAAFc/CEjJx6LPyAc/deleteElement.png"  style="float:left;"/>
+<img src="http://lh3.ggpht.com/_ZULEwNxx018/SbPBvCanaFI/AAAAAAAAAFc/CEjJx6LPyAc/deleteElement.png"  style="float:left;"/><br/>
 Silmek istenen elemanın üzerinde sağ tıklayarak  "Sil" işlemi 
 seçilir. Silme işlemi tamamlanınca ilgili eleman ağaç yapısından kaldırılacaktır. 
 Ayrıca klasör sildiğiniz zaman onun altındaki tüm elemanlarda silinmektedir.
@@ -44,16 +44,16 @@ Ayrıca klasör sildiğiniz zaman onun altındaki tüm elemanlarda silinmektedir
 
 === Elemanın yerini değiştirme ===
 <img src="http://lh3.ggpht.com/_ZULEwNxx018/SbPBvZtqk5I/AAAAAAAAAFk/cdynzzHANcY/dragElement.png"  style="float:left;"/> 
-<img src="http://lh5.ggpht.com/_ZULEwNxx018/SbPBvgJjSwI/AAAAAAAAAFs/zpwLIbZa8Wo/dropElement.png"  style="float:left;"/>
+<img src="http://lh5.ggpht.com/_ZULEwNxx018/SbPBvgJjSwI/AAAAAAAAAFs/zpwLIbZa8Wo/dropElement.png"  style="float:left;"/><br/>
 Sürükle-bırak yöntemi ile elemanların yerleri değiştirilebilir. Yerini
 değiştirmek istediğiniz eleman tutularak(üzerinde sol tıklayıp ve basılı tutarak) olması
 istenen yere bırakılır - farenin sol tuşu serbest bırakılır.
 
 
 === Eleman ismini değiştirme ===
-<img src="http://lh4.ggpht.com/_ZULEwNxx018/SbPBu2dZjWI/AAAAAAAAAFU/YXSrkEc7Rio/addElementText.png"  style="float:left;"/>
+<img src="http://lh4.ggpht.com/_ZULEwNxx018/SbPBu2dZjWI/AAAAAAAAAFU/YXSrkEc7Rio/addElementText.png"  style="float:left;"/><br/>
 İsmi değiştirilmek istenen elemanın üzerinde sağ tıklayarak "Düzenle" işlemi seçilir.
-<div style="clear:both"><img src="http://lh3.ggpht.com/_ZULEwNxx018/SbPYnp1ZNsI/AAAAAAAAAF8/oBsEiqzUrAA/elementAdded.png"  style="float:left;"/>
+<div style="clear:both"><img src="http://lh3.ggpht.com/_ZULEwNxx018/SbPYnp1ZNsI/AAAAAAAAAF8/oBsEiqzUrAA/elementAdded.png"  style="float:left;"/><br/>
 Elemanın yeni ismi açılan kutunun içine yazıldıktan sonra <b>Enter</b> tuşuna basılırsa sunucuya ajax isteği gönderilir, <b>Esc</b> tuşuna basılırsa işlem iptal edilir.
 
 
