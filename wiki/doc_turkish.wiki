@@ -74,7 +74,9 @@ sorumluluk kullanana aittir.
 Herhangi bir durumda kesinlikle sorumluluk kabul edilmez..
 
 == Yazar == 
-<a href='mailto:ahmetmermerkaya@gmail.com'>Ahmet Oguz Mermerkaya</a>
+<a href='mailto:ahmetmermerkaya@gmail.com'>Ahmet Oguz Mermerkaya</a><br/>
+
+ahmetmermerkaya@gmail.com
 
 mekya
 
