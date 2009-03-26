@@ -20,7 +20,8 @@ var treeOps = new TreeOperations();
 $(document).ready(function() {
 	
 	// binding menu functions
-	$('#myMenu1 #addDoc').click(function()  {  treeOps.addElementReq(); });									   						    $('#myMenu1 #addFolder').click(function()  {  treeOps.addElementReq(true); });	
+	$('#myMenu1 #addDoc').click(function()  {  treeOps.addElementReq(); });									   						    
+	$('#myMenu1 #addFolder').click(function()  {  treeOps.addElementReq(true); });	
 	$('#myMenu1 #edit, #myMenu2 #edit').click(function() {  treeOps.updateElementNameReq(); });
 	$('#myMenu1 #delete, #myMenu2 #delete').click(function() {  treeOps.deleteElementReq(); });
 	
