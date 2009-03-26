@@ -85,7 +85,7 @@ This software guarantees nothing, use it with your own risk.
 No responsilibity is taken for any situation.
 
 == Author == 
-<a href='mailto:ahmetmermerkaya@gmail.com'>Ahmet Oguz Mermerkaya</a>
+<a href='mailto:ahmetmermerkaya@gmail.com'>Ahmet Oguz Mermerkaya</a><br/>
 ahmetmermerkaya@gmail.com
 
 mekya
