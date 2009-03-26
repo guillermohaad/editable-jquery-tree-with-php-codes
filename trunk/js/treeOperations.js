@@ -23,6 +23,8 @@ function TreeOperations()
 	this.ajaxActive = true;
 	this.treeBusy = false;
 	this.timer = 0;
+	this.folderElement = false;
+	this.lookAtFolderElement = false;
 
 	
 	this.inputText = "<input type='text' id='inputText' maxlength='30'>";
@@ -106,30 +108,34 @@ function TreeOperations()
 		
 		simpleTree.get(0).setTreeNodes($('#'+info.elementId).get(0));
 		
-		if (info.slave == 0) { // eger dosya doc degilse klasör yapiliyor.
+		if (info.slave == 0) { // eger dosya doc degilse klasï¿½r yapiliyor.
 			simpleTree.get(0).convertToFolder($("#"+info.elementId));
 		}
 	}    
 	/////////////////////////////////////////////////////////////
 	this.addElementReq = function(folder)
-	{    // Menu de yeni eleman ekle seçenegi tiklandiginda ilk bura çagrilir 
+	{    // Menu de yeni eleman ekle seï¿½enegi tiklandiginda ilk bura ï¿½agrilir 
 		 // ve yeni bir yazi alani eklenir.
 		
 		if ( treeOps.isTreeBusy() == true ||  
 			 treeOps.trGetSelectedWithAlert() == null
 			) 
 		{
-			// agaçta baska bir islem yapiliyorsa veya seçili eleman 
+			// agaï¿½ta baska bir islem yapiliyorsa veya seï¿½ili eleman 
 			// yok ise islem yapilmasi engelleniyor
 			return;
 		}			
 		dragOperation = false;
+		
+		
 		
 		if (treeOps.trGetSelected().get(0).className.indexOf('close') >= 0)
 		{
 			var childUl = $('>ul', treeOps.trGetSelected().get(0));
 			if (childUl.is('.ajax')) {
 				simpleTree.get(0).nodeToggle(treeOps.trGetSelected().get(0), treeOps.addElementReq);
+				treeOps.lookAtFolderElement = true;
+				treeOps.folderElement = folder;				
 				return;
 			}
 			else {				
@@ -137,13 +143,14 @@ function TreeOperations()
 			}
 		}
 		
+		
 		treeOps.treeBusy = true;	
 		var content = $.trim($('ul', treeOps.trGetSelected()).html());
 
 		if (content == "") 
 		{
-			// Klasörün alti bosken altina yeni eleman eklenemiyordu bu yüzden asagidaki kodlar yazildi.
-			// eger IE de fazladan gözüken dosyanin gözükmemesi için son iki silme (remove) satiri eklendi.
+			// Klasï¿½rï¿½n alti bosken altina yeni eleman eklenemiyordu bu yï¿½zden asagidaki kodlar yazildi.
+			// eger IE de fazladan gï¿½zï¿½ken dosyanin gï¿½zï¿½kmemesi iï¿½in son iki silme (remove) satiri eklendi.
 			$('ul', treeOps.trGetSelected()).html('<li class="line"> </li><li class="doc-last"></li><li class="line-last"/>');
 			
 			simpleTree.get(0).addNode("newElement", "name", null);
@@ -157,12 +164,16 @@ function TreeOperations()
 		
 		var slave = 1;
 		
-		
+		if (treeOps.lookAtFolderElement == true){
+			folder = treeOps.folderElement;
+		}
+		treeOps.lookAtFolderElement = false;
 		
 		if (folder == true) {
 			simpleTree.get(0).convertToFolder(treeOps.trGetSelected());
 			slave = 0;
 		}
+		
 		treeOps.trGetSelected().html(treeOps.inputText);
 		$('#inputText').focus();
 		
@@ -200,7 +211,7 @@ function TreeOperations()
 	this.trDeleteElement = function(result)
 	{
 		if (result != operationFailed)	{
-			// component haline getirirken burayi çikar
+			// component haline getirirken burayi ï¿½ikar
 			if (treeOps.trGetSelected().attr('id') == $('#ownerElement').attr('value'))
 			{			
 				$('#activeElement').html('');
@@ -223,7 +234,7 @@ function TreeOperations()
 			 treeOps.trGetSelectedWithAlert() == null
 			) 
 		{
-			// agaçta baska bir islem yapiliyorsa veya seçili eleman 
+			// agaï¿½ta baska bir islem yapiliyorsa veya seï¿½ili eleman 
 			// yok ise islem yapilmasi engelleniyor
 			return;
 		}	
