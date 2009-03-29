@@ -184,7 +184,7 @@ $.fn.simpleTree = function(opt){
 					$('>ul', cloneNode).hide();
 					$('body').append('<div id="drag_container"><ul></ul></div>');
 					$('#drag_container').hide().css({opacity:'0.8'});
-					$('#drag_container >ul').append(cloneNode);
+					$('#drag_container >ul').html(cloneNode); 
 					$("<img>").attr({id	: "tree_plus",src	: "js/jquery/plugins/simpleTree/images/plus.gif"}).css({width: "7px",display: "block",position: "absolute",left	: "5px",top: "5px", display:'none'}).appendTo("body");
 					$(document).bind("mousemove", {LI:LI}, TREE.dragStart).bind("mouseup",TREE.dragEnd);
 				}
@@ -244,13 +244,13 @@ $.fn.simpleTree = function(opt){
 		TREE.dragStart = function(event){
 			var LI = $(event.data.LI);
 			if(mousePressed)
-			{
+			{				
 				mouseMoved = true;
 				if(dragDropTimer) clearTimeout(dragDropTimer);
 				if($('#drag_container:not(:visible)')){
 					$('#drag_container').show();
 					LI.prev('.line').hide();
-					dragNode_source = LI;
+					dragNode_source = LI;				
 				}
 				$('#drag_container').css({position:'absolute', "left" : (event.pageX + 5), "top": (event.pageY + 15) });
 				if(LI.is(':visible'))LI.hide();
