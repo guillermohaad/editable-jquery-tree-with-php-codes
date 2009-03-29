@@ -137,7 +137,9 @@ body
 	background:#ffffff;
 	color:#000;
 	font: normal 11px arial, tahoma, helvetica, sans-serif;
-	border: 1px dashed #767676;
+/*	border: 1px dashed #767676; it creates a dashed area in drag and drop
+ *
+ */
 }
 #drag_container ul
 {
