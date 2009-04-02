@@ -64,9 +64,11 @@ $(document).ready(function() {
 				});
 			}
 		},
-		afterAjax:function()
+		afterAjax:function(node)
 		{
-			//alert('Loaded');
+			if (node.html() == "") {
+				node.html("<li class='line-last'></li>");
+			}
 		},		
 		afterContextMenu: function(element, event)
 		{
