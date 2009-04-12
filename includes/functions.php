@@ -7,7 +7,7 @@
  * @param $pageName
  * @return unknown_type
  */
-
+//TODO: delete this function
 function getElementList(&$db, $sql,$pageName)
 {
 	$str = false;
@@ -38,13 +38,13 @@ function getElementList(&$db, $sql,$pageName)
 	}
 	return $str;
 }
-
 /**
  * 
  * @param $db
  * @param $Id
  * @return unknown_type
  */
+//TODO: delete this function
 function deleteData($db, $Id, &$i = 0) 
 {
 	// to check that whether child exists
