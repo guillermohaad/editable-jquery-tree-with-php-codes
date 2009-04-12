@@ -65,8 +65,8 @@ $(document).ready(function() {
 			}
 		},
 		afterAjax:function(node)
-		{
-			if (node.html() == "") {
+		{			
+			if (node.html().length == 1) {
 				node.html("<li class='line-last'></li>");
 			}
 		},		
