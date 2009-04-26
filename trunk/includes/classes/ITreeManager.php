@@ -80,6 +80,13 @@
  	*	
  	*/
  	public function changeOrder($elementId, $destOwnerEl, $destPosition);
+	
+	
+	/**
+	 * returns the root id
+	 * @return 
+	 */
+	public function getRootId();
  } 
  ?>
 
