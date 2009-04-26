@@ -16,32 +16,35 @@ $dbHost = "localhost";
 // database user name
 $dbUsername = "root";
 // password to connect to database
-$dbPassword = "BlindS";
+$dbPassword = "21236161";
 // database name
 $dbName = "php";
 
 define ("TREE_TABLE_PREFIX", "tree");
 
 /** target platform types
- *  this script runs both database and file system 
+ *  this script runs both database and file system. 
  *  database platform only supports mysql
  */
 define ("DATABASE_PLATFORM", 0); // Don't edit
 define ("FILE_SYSTEM_PLATFORM", 1); // Don't edit
 
-define ("FAILED", "-1");  // Don't edit
-define ("SUCCESS", "1");  // Don't edit
+define ("SUCCESS", 1);  // Don't edit
+define ("FAILED", -1);  // Don't edit
+define ("FAILED_FILE_WITH_SAME_NAME_EXIST", -2); // Don't edit
+
 
 
 // choose target platform according to your needs 
 // it may be DB_PLATFORM or FILE_SYSTEM_PLATFORM
 define ("TARGET_PLATFORM", DATABASE_PLATFORM);
 
+// ATTENTION,  if FILE_SYSTEM_PLATFORM is selected then assign root folder adress to this macro
+define("FILE_ROOT", "/home/mekya/public_html/test");
+
 // if you want to run it in demo mode, enable the macro below
 // if this macro is enabled, it runs in demo mode regardsless of whatever TARGET_PLATFORM is
 //define("DEMO_MODE", true);
-
-
 
 error_reporting(0);
 
