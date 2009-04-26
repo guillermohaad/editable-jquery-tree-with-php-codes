@@ -14,7 +14,7 @@
 var simpleTree;
 var structureManagerURL = "manageStructure.php";
 var dragOperation = true;
-var operationFailed = "-1";
+var operationFailed = -1;
 
 function TreeOperations()
 {
@@ -102,7 +102,6 @@ function TreeOperations()
 			info = eval("(" + result + ")");
 			//alert(info.elementName);
 		}	
-		
 		$('#inputText').parent().attr('id', info.elementId);
 		$('#inputText').replaceWith("<span>"+info.elementName+"</span>");
 		
@@ -185,7 +184,6 @@ function TreeOperations()
 				    var name = $('#inputText').attr('value');										
 					var ownerEl = $('#inputText').parent().parent().parent().attr('id');
 					var params = encodeURI("action=insertElement"+"&name="+name+"&ownerEl="+ownerEl+"&slave="+slave);
-					
 					treeOps.ajaxReq(params, structureManagerURL, treeOps.trAddElement);
 					dragOperation = true;
 				}
@@ -211,16 +209,7 @@ function TreeOperations()
 	this.trDeleteElement = function(result)
 	{
 		if (result != operationFailed)	{
-			// component haline getirirken burayi �ikar
-			if (treeOps.trGetSelected().attr('id') == $('#ownerElement').attr('value'))
-			{			
-				$('#activeElement').html('');
-				$('#activeElement').removeClass('ajaxInfo');
-				$('#ownerElement').attr('value', '');
-				$('#action').attr('value','');
-				tinyMCE.get('richTextArea').setContent('');
-				contentChanged = false;
-			}
+		
 			simpleTree.get(0).delNode();				
 		}
 		else{
@@ -253,8 +242,11 @@ function TreeOperations()
 	{
 		var info = eval('('+result +')');
 		var tmp_node = "<span>"+info.elementName+"</span>";
+		$('#inputText').parent().attr('id', info.elementId);
+		
 		$('#inputText', '#'+info.elementId).replaceWith(tmp_node);
-			
+		
+		$('ul.ajax>li.doc-last', '#' + info.elementId).attr('id', info.elementId).html("{url:"+ structureManagerURL +"?action=getElementList&ownerEl="+ info.elementId +"}");
 		simpleTree.get(0).setTreeNodes2($('#'+info.elementId));
 	}
 
@@ -288,7 +280,7 @@ function TreeOperations()
 									 else if (evt.keyCode == 27) { // pressed esc
 									 	treeOps.setTreeBusy(false);
 									    $('#inputText').replaceWith("<span>"+elementName+"</span>");
-									 	simpleTree.get(0).setTreeNodes($('#'+elementId))
+									 	simpleTree.get(0).setTreeNodes2($('#'+elementId))
 									 }
 								 }
 							);
@@ -299,11 +291,52 @@ function TreeOperations()
 	{
 		//simpleTree.get(0).setAjaxNodes(getSelected(), null, null);
 	}
+//*******************************************************
+	this.isInt = function(t) {
+		try {
+			//var t = eval(x);
+			var y = parseInt(t);
+			
+			if (isNaN(y)) {
+				return false;
+			}
+			return t == y && t.toString() == y.toString();
+		}
+		catch(ex){
+			
+		}
+		return false;
+ 	} 
 //*******************************************************	
-	this.ajaxReq = function(params, url, callback)
+	this.ajaxReq = function(params, url, callback, overrideSuccessFunc)
 	{
 		if (treeOps.ajaxActive == true)
 		{
+			var successFunction = function(result){	
+						
+							treeOps.treeBusy = false;
+							treeOps.showInProcessInfo(false);
+							
+							try {
+								var t = eval(result);
+								// if result is less than 0, it means an error occured														
+								if (treeOps.isInt(t) == true  && t < 0) { 
+									alert(eval("langManager.error_" + Math.abs(t)));									
+								}	
+								else{ // if result is greater than 0 it means operation is succesfull
+									callback(result);
+									treeOps.showOperationInfo(langManager.missionCompleted);
+								}
+							}
+							catch(ex) {	// if result is string it means operation is succesfull				
+								callback(result);
+								treeOps.showOperationInfo(langManager.missionCompleted);								
+							}
+			};
+			
+			if (typeof overrideSuccessFunc == 'function') {
+				successFunction = overrideSuccessFunc;	
+			}
 		 	$.ajax({
    					type: 'POST',
 					url: url,
@@ -311,19 +344,7 @@ function TreeOperations()
 					dataType: 'script',
 					timeout:100000,
 					beforeSend: function(){ treeOps.showInProcessInfo(true);  },
-					success: function(result){	
-						
-							treeOps.treeBusy = false;
-							treeOps.showInProcessInfo(false);
-							
-							if (result == operationFailed) {
-								alert(langManager.error);									
-							}						
-							else{
-								callback(result);
-								treeOps.showOperationInfo(langManager.missionCompleted);
-							}
-					},
+					success: successFunction,
 					failure: function(result) {								
 							treeOps.treeBusy = false;
 							treeOps.showInProcessInfo(false);
@@ -342,4 +363,6 @@ function TreeOperations()
 			treeOps.treeBusy = false;
 		}
 	}
+	
+
 }
