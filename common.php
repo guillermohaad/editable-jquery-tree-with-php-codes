@@ -29,6 +29,9 @@ else if (TARGET_PLATFORM == DATABASE_PLATFORM )
 }
 else if (TARGET_PLATFORM == FILE_SYSTEM_PLATFORM) {
 	
+	require_once("includes/classes/FileTreeManager.php");
+	$treeManager = new FileTreeManager(FILE_ROOT);
+	
 }
 
 
