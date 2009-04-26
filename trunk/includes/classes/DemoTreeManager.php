@@ -22,8 +22,31 @@ class DemoTreeManager implements ITreeManager
  	
 	
  	public function getElementList($ownerEl, $pageName) {
- 		$out = "<li class='text' id='14'><span>file-1</span></li><li class='text' id='15'>".
-					"<span>file-2</span></li><li class='text' id='16'><span>file-3</span></li>";
+ 		if ($ownerEl == null) 
+		{
+ 			$out = "<li class='text' id='4'>"
+						."<span>Folder-1</span>"
+						."<ul class='ajax'>"
+							."<li id='4'>{url:manageStructure.php?action=getElementList&ownerEl=4}</li>"
+						."</ul>"
+					."</li>"
+					."<li class='text' id='12'>"
+						."<span>Folder-2</span>"
+						."<ul class='ajax'>"
+							."<li id='12'>{url:manageStructure.php?action=getElementList&ownerEl=12}</li>"
+						."</ul>"
+					."</li>"
+					."<li class='text' id='13'>"
+						."<span>Folder-3</span>"
+							."<ul class='ajax'>
+								<li id='13'>{url:manageStructure.php?action=getElementList&ownerEl=13}</li>"
+							."</ul>"
+						."</li>";
+ 		}
+		else {
+	 		$out = "<li class='text' id='". rand(0, 10000) ."'><span>file-1</span></li><li class='text' id='". rand(0, 10000) ."'>".
+					"<span>file-2</span></li><li class='text' id='". rand(0, 10000) ."'><span>file-3</span></li>";
+		}
 		return $out; 		
  	}
  	
@@ -44,9 +67,13 @@ class DemoTreeManager implements ITreeManager
  
  
  	public function changeOrder($elementId, $destOwnerEl, $destPosition){
- 		$out = SUCCESS;		
+ 		$out = '({"oldElementId":"'.$elementId.'", "elementId":"'. $elementId .'"})';	
 		return $out;  		
  	}	
+	
+	public function getRootId(){
+		return 0;
+	}
 }
 
 ?>
