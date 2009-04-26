@@ -34,7 +34,7 @@ switch($action)
 	         ( isset($_POST['slave']) === true && $_POST['slave'] != NULL )		   
 		   )
 		{				
-			$ownerEl = (int) checkVariable($_POST['ownerEl']);
+			$ownerEl = checkVariable($_POST['ownerEl']);
 			$slave = (int) checkVariable($_POST['slave']);
 			$name = checkVariable($_POST['name']);			
 		  
@@ -51,7 +51,7 @@ switch($action)
 		 * getting element list
 		 */
         if( isset($_REQUEST['ownerEl']) == true && $_REQUEST['ownerEl'] != NULL ) {  	
-			$ownerEl = (int) checkVariable($_REQUEST['ownerEl']); 
+			$ownerEl = checkVariable($_REQUEST['ownerEl']); 
 		}
 		else {
 			$ownerEl = 0;
@@ -70,7 +70,7 @@ switch($action)
 		    isset($_POST['elementId']) && !empty($_POST['elementId']))
 		{			
 			$name = checkVariable($_POST['name']);
-			$elementId = (int) checkVariable($_POST['elementId']); 			
+			$elementId = checkVariable($_POST['elementId']); 			
 		
 			$out = $treeManager->updateElementName($name, $elementId);
 		}                         
@@ -87,9 +87,8 @@ switch($action)
 		 */
 		if (isset($_POST['elementId']) && !empty($_POST['elementId']))
 		{
-        	$elementId = (int) checkVariable($_POST['elementId']);	 
-        	 
-			 
+        	$elementId =  checkVariable($_POST['elementId']);	 
+        	 			 
 			$out = $treeManager->deleteElement($elementId);             
 	    }
         else {
@@ -108,8 +107,8 @@ switch($action)
 			)			
 		{
 			
-			$elementId = (int) checkVariable($_POST['elementId']);
-			$destOwnerEl = (int) checkVariable($_POST['destOwnerEl']);
+			$elementId = checkVariable($_POST['elementId']);
+			$destOwnerEl = checkVariable($_POST['destOwnerEl']);
 			$position = (int) checkVariable($_POST['position']);
 			
 		
