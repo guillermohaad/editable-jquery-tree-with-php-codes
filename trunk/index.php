@@ -12,40 +12,9 @@ define("IN_PHP", true);
 
 require_once("common.php");
 
-$sql = 'SELECT 
-			Id, name, slave 
-		FROM ' 
-			. TREE_TABLE_PREFIX .'_elements
-		WHERE
-			ownerEl = 0 
-		ORDER BY
-			position';
-
 $rootName = "Root";
-if (defined("DEMO_MODE")) 
-{
-	$treeElements = "<li class='text' id='4'>"
-						."<span>Folder-1</span>"
-						."<ul class='ajax'>"
-							."<li id='4'>{url:manageStructure.php?action=getElementList&ownerEl=4}</li>"
-						."</ul>"
-					."</li>"
-					."<li class='text' id='12'>"
-						."<span>Folder-2</span>"
-						."<ul class='ajax'>"
-							."<li id='12'>{url:manageStructure.php?action=getElementList&ownerEl=12}</li>"
-						."</ul>"
-					."</li>"
-					."<li class='text' id='13'>"
-						."<span>Folder-3</span>"
-							."<ul class='ajax'>
-								<li id='13'>{url:manageStructure.php?action=getElementList&ownerEl=13}</li>"
-							."</ul>"
-						."</li>";
-}
-else {
-	$treeElements = getElementList($db, $sql, "manageStructure.php");
-}
+$treeElements = $treeManager->getElementList(null, "manageStructure.php");
+
 ?>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
@@ -80,7 +49,7 @@ else {
 <div id="wrap">
 	<div id="annualWizard">	
 			<ul class="simpleTree" id='pdfTree'>		
-					<li class="root" id='0'><span><?php echo $rootName; ?></span>
+					<li class="root" id='<?php echo $treeManager->getRootId();  ?>'><span><?php echo $rootName; ?></span>
 						<ul>
 							<?php echo $treeElements; ?>					
 						</ul>				
