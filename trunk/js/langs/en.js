@@ -1,7 +1,8 @@
 // JavaScript Document
 
 langManager.addIndexes({
-error:'An error occured in the operation',
+error_1:'An error occured in the operation',
+error_2:'The element with the same name already exists',
 willReload:'Page will be reloaded.',
 deleteConfirm:'Are you sure you want to delete this item?',
 doOneOperationAtATime:'Only one operation can be active at any time.',
@@ -11,9 +12,5 @@ addDocMenu:'Add file',
 addFolderMenu:'Add folder',
 editMenu:'Edit',
 deleteMenu:'Delete',
-//dataSaved:'Request is completed succesfully.',
 missionCompleted:'Request is completed succesfully.',
-//nameChanged:'Request is completed succesfully.',
-//newItemAdded:'Request is completed succesfully.',
-noActiveElement:'There is no active item.'
 });
