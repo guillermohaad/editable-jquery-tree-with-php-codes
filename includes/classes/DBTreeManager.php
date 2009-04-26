@@ -20,6 +20,7 @@
 	
  	public function insertElement($name, $ownerEl, $slave)
 	{
+		$ownerEl = (int) $ownerEl;
 		$sql = sprintf('INSERT INTO ' 
 								. TREE_TABLE_PREFIX . '_elements(name, position, ownerEl, slave)
 							SELECT 
@@ -41,6 +42,12 @@
  	
  	public function getElementList($ownerEl, $pageName)
 	{
+		if ($ownerEl == null) {
+			$ownerEl = 0;
+		}
+		else {
+			$ownerEl = (int) $ownerEl;
+		}
 		$sql = sprintf("SELECT 
         					Id, name, slave 
         				FROM " 
@@ -91,6 +98,7 @@
  	
  	public function updateElementName($name, $elementId)
 	{
+		$elementId = (int) $elementId;
  		$sql = sprintf('UPDATE ' 
         						. TREE_TABLE_PREFIX.'_elements 
 							SET 
@@ -109,6 +117,7 @@
  	
      public function deleteElement($elementId, &$index = 0)
      {
+     	$elementId = (int) $elementId;
          $sql = sprintf('SELECT
      				 		Id, slave, position, ownerEl 
      					FROM '. TREE_TABLE_PREFIX .'_elements
@@ -223,13 +232,18 @@
 	
 					
 					if ($this->db->query($sql1) && $this->db->query($sql2) && $this->db->query($sql3)) {					
-						$out = SUCCESS;
+						$out = $out = '({"oldElementId":"'.$elementId.'", "elementId":"'. $elementId .'"})';;;
 					}					
 				}
 				
 		}
 		return $out;				
  	}
+	
+	
+	public function getRootId(){
+		return 0;
+	}
  	
  }
  ?>
