@@ -55,12 +55,26 @@ $(document).ready(function() {
 			if (dragOperation == true) 
 			{
 				var params = "action=changeOrder&elementId="+source.attr('id')+"&destOwnerEl="+destination.attr('id')+"&position="+pos;
-				treeOps.ajaxReq(params, structureManagerURL, function(result)
-				{	
-					if (result == -1) {
-						alert(langManager.error+"\n"+langManager.willReload);
-						window.location.reload();
+				treeOps.ajaxReq(params, structureManagerURL, null, function(result)
+				{						
+					treeOps.treeBusy = false;
+					treeOps.showInProcessInfo(false);
+					try {
+						var t = eval(result);
+						// if result is less than 0, it means an error occured														
+						if (treeOps.isInt(t) == true  && t < 0) { 
+							alert(eval("langManager.error_" + Math.abs(t)) + "\n"+langManager.willReload);									
+							window.location.reload();							
+						}
+						else {
+							var info = eval("(" + result + ")");
+							$('#' + info.oldElementId).attr("id", info.elementId);
+						}
 					}
+					catch(ex) {	
+							var info = eval("(" + result + ")");
+							$('#' + info.oldElementId).attr("id", info.elementId);	
+					}	
 				});
 			}
 		},
@@ -77,10 +91,13 @@ $(document).ready(function() {
 				$('#myMenu2').css('top',event.pageY).css('left',event.pageX).show();				
 			}
 			else {
+				if (className.indexOf('root') >= 0) {
+					$('#myMenu1 #edit, #myMenu1 #delete').hide();
+				}
 				$('#myMenu1').css('top',event.pageY).css('left',event.pageX).show();
 			}
 			
-			$('*').click(function() { $('#myMenu1, #myMenu2').hide();  });
+			$('*').click(function() { $('#myMenu1, #myMenu2').hide(); $('#myMenu1 #edit, #myMenu1 #delete').show(); });
 			
 		},
 		animate:true
