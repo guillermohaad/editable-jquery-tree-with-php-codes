@@ -232,7 +232,7 @@
 	
 					
 					if ($this->db->query($sql1) && $this->db->query($sql2) && $this->db->query($sql3)) {					
-						$out = $out = '({"oldElementId":"'.$elementId.'", "elementId":"'. $elementId .'"})';;;
+						$out = '({"oldElementId":"'.$elementId.'", "elementId":"'. $elementId .'"})';
 					}					
 				}
 				
