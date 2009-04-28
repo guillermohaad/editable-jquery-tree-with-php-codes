@@ -56,6 +56,20 @@ function TreeOperations()
 		});
 		
 	}
+//********************************************************
+	this.escapeChars = function(str) {	
+		var ch = Array();	
+		ch[0] = '.';
+		ch[1] = '[';
+		ch[2] = ']';
+		ch[3] = '/';
+		ch[4] = '@';
+		var i = 0;
+		for (i = 0; i < ch.length; i++) {
+			str = str.replace(ch[i], '\\' + ch[i]);	
+		}
+		return str;
+	}
 //*******************************************************
 	this.showInProcessInfo = function(show)
 	{
@@ -105,10 +119,11 @@ function TreeOperations()
 		$('#inputText').parent().attr('id', info.elementId);
 		$('#inputText').replaceWith("<span>"+info.elementName+"</span>");
 		
-		simpleTree.get(0).setTreeNodes($('#'+info.elementId).get(0));
+		var elementId = treeOps.escapeChars(info.elementId);
 		
+		simpleTree.get(0).setTreeNodes($('#' + elementId).get(0));
 		if (info.slave == 0) { // eger dosya doc degilse klas�r yapiliyor.
-			simpleTree.get(0).convertToFolder($("#"+info.elementId));
+			simpleTree.get(0).convertToFolder($("#" + elementId));
 		}
 	}    
 	/////////////////////////////////////////////////////////////
@@ -124,9 +139,7 @@ function TreeOperations()
 			// yok ise islem yapilmasi engelleniyor
 			return;
 		}			
-		dragOperation = false;
-		
-		
+		dragOperation = false;		
 		
 		if (treeOps.trGetSelected().get(0).className.indexOf('close') >= 0)
 		{
@@ -208,8 +221,7 @@ function TreeOperations()
 ********************************************************/
 	this.trDeleteElement = function(result)
 	{
-		if (result != operationFailed)	{
-		
+		if (result != operationFailed)	{		
 			simpleTree.get(0).delNode();				
 		}
 		else{
@@ -243,16 +255,15 @@ function TreeOperations()
 		var info = eval('('+result +')');
 		var tmp_node = "<span>"+info.elementName+"</span>";
 		$('#inputText').parent().attr('id', info.elementId);
+
+		var elementId = treeOps.escapeChars(info.elementId);
 		
-		$('#inputText', '#'+info.elementId).replaceWith(tmp_node);
+		$('#inputText', '#'+ elementId).replaceWith(tmp_node);
 		
-		$('ul.ajax>li.doc-last', '#' + info.elementId).attr('id', info.elementId).html("{url:"+ structureManagerURL +"?action=getElementList&ownerEl="+ info.elementId +"}");
-		simpleTree.get(0).setTreeNodes2($('#'+info.elementId));
+		$('ul.ajax>li.doc-last', '#' + elementId).attr('id', info.elementId).html("{url:"+ structureManagerURL +"?action=getElementList&ownerEl="+ info.elementId +"}");
+		simpleTree.get(0).setTreeNodes2($('#' + elementId));
 	}
 
-/**
- * when user right click on an element this function is executed 
- */
 	this.updateElementNameReq = function()
 	{
 		if ( treeOps.isTreeBusy() == true ||  
@@ -363,6 +374,4 @@ function TreeOperations()
 			treeOps.treeBusy = false;
 		}
 	}
-	
-
 }
