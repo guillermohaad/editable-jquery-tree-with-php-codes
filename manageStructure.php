@@ -56,9 +56,7 @@ switch($action)
 		else {
 			$ownerEl = 0;
 		}
-		
   		$out = $treeManager->getElementList($ownerEl, $_SERVER['PHP_SELF']);
-		         
     }
 	break;		
     case "updateElementName":
@@ -105,15 +103,12 @@ switch($action)
 			(isset($_POST['destOwnerEl']) && $_POST['destOwnerEl'] != NULL) &&
 			(isset($_POST['position']) && $_POST['position'] != NULL) 
 			)			
-		{
-			
+		{			
 			$elementId = checkVariable($_POST['elementId']);
 			$destOwnerEl = checkVariable($_POST['destOwnerEl']);
 			$position = (int) checkVariable($_POST['position']);
-			
 		
 			$out = $treeManager->changeOrder($elementId, $destOwnerEl, $position);
-			
 		}			
 		else{		
 			$out = FAILED;
