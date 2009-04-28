@@ -2,13 +2,32 @@
 This software is a tree structure runs at web browsers 
 and completes its function, like add item,
 change name, drag & drop and delete item, 
-by using ajax requests, PHP and MySQL so server has to have
-PHP and MySQL softwares to make this software run.
-                                                                                         
+by using ajax requests. Items in tree view may be in a database table or
+they may be files or folders in file system.
+PHP and MySQL(if items are set to be in a database table) softwares are needed to make this software run.
+											
 This software also uses <a href='http://jquery.com'>jquery javascript framework</a>,
 <a href='http://news.kg/wp-content/uploads/tree/'>simple tree plugin.</a> 
+<br/>
 
 == INSTALL ==
+Set either 
+<pre>DATABASE_PLATFORM or FILE_SYSTEM_PLATFORM</pre> to 
+<pre>TARGET_PLATFORM</pre> macro 
+in 'includes/config.php' to determine which platform software will run at.
+for instance:
+<pre>define ("TARGET_PLATFORM", DATABASE_PLATFORM);</pre>
+<br/>				
+*if TARGET_PLATFORM is set to FILE_SYSTEM_PLATFORM*, 
+FILE_ROOT macro must be set to full path of root folder address.<br/>
+for instance:
+<pre>define("FILE_ROOT", "/home/mekya/public_html/test");</pre>
+Please make sure that web server user has the right to read and write to the folder
+specified above.
+				
+<br/><br/>
+*if TARGET_PLATFORM is set to DATABASE_PLATFORM*, 
+ 							
 Set your database parameters in 'includes/config.php',
 also you can change TREE_TABLE_PREFIX macro whose default value is 'tree'.<br/>
 Then create table according to TREE_TABLE_PREFIX macro 
@@ -21,7 +40,9 @@ Then create table according to TREE_TABLE_PREFIX macro
  `slave` binary(1) NOT NULL default '0',
  PRIMARY KEY  (`Id`)
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
-}}}  
+}}}  			 
+
+
 
 == Features ==  
 === Add item ===   
@@ -73,8 +94,8 @@ press <b>Esc</b> to cancel the operation.
 
 == Support == 
 If you need support to modify and use this software,
-I can share all information I have for free,
-so feel free to <a href='mailto:ahmetmermerkaya@gmail.com'>contact me</a>
+We can share all information we have for free,
+so feel free to <a href='mailto:ahmetmermerkaya@gmail.com'>contact us</a>
 
 == License ==
 This software is free.
@@ -84,11 +105,8 @@ It can be modified and distributed without notification.
 This software guarantees nothing, use it with your own risk.
 No responsilibity is taken for any situation.
 
-== Author == 
-<a href='mailto:ahmetmermerkaya@gmail.com'>Ahmet Oguz Mermerkaya</a><br/>
-
-ahmetmermerkaya@gmail.com
-
-mekya
-
+== Authors == 
+Ozan Koroglu - <a href='mailto:koroglu.ozan@gmail.com'>koroglu.ozan@gmail.com</a> <br/>
+Ahmet Oguz Mermerkaya (mekya) - <a href='mailto:ahmetmermerkaya@gmail.com'>ahmetmermekaya@hotmail.com</a> 							 				 
+<br/>		
 <a href='http://www.e-yillik.net/' class='content'>www.e-yillik.net</a>
