@@ -5,7 +5,6 @@
 <meta name="keywords"  content="jquery, ağaç yapısı, ajax, php" />
 <meta name="description" content="Editable jquery tree with php codes" />
 <title>Editable jquery tree with php codes</title>
-<link rel="stylesheet" type="text/css" href="style.css"/>
 <style rel="stylesheet" type="text/css">
 body {
 	font: normal 13px arial, tahoma, helvetica, sans-serif;
@@ -37,9 +36,11 @@ body {
 		<div class='content'><img src="images/help/tr/tree.png"  style="float:left;"/>
 				Bu yazılım bir ağaç yapısıdır ve sahip olduğu eleman ekleme,
 				isim değiştirme, sürükle-bırak ve silme işlemlerini sunucuya 
-				ajax istekleri göndererek yapar. Ajax isteklerinin uygun
-				şekilde işlenebilmesi için sunucunun PHP ve MySQL 
-				yazılımlarına sahip olması gerekir.
+				ajax istekleri göndererek yapar. Ağaç yapısındaki
+				elemanlar veritabanında olabileceği gibi dosya sistemi üzerinde dosyalar
+				ve klasörler de olabilir.Ajax isteklerinin uygun
+				şekilde işlenebilmesi için sunucunun PHP ve elemanlar veritabanı üzerinde
+				olacaksa MySQL yazılımlarına sahip olması gerekir.
 				<br/>											
 				Bu yazılım ayrıca <a href='http://jquery.com'>jquery javascript çerçevesini</a>,
 				simple tree eklentisini kullanır.
@@ -49,7 +50,22 @@ body {
 	<div class='section'>
 		<div class='header'>Kurulum</div>
 		<div class='content'>
-				Veritabanı parametrelerini 'includes/config.php' dosyası içine yazınız,
+				Hangi platformda çalışacağını 'includes/config.php' dosyasında
+				<pre>TARGET_PLATFORM</pre> makrosuna 
+				<pre>DATABASE_PLATFORM veya FILE_SYSTEM_PLATFORM</pre> makrolarından
+				birini atayarak ayarlayabilirsiniz. <br/><br/>
+				Örnek:
+				<pre>define ("TARGET_PLATFORM", DATABASE_PLATFORM);</pre>
+				
+				<b>Eğer TARGET_PLATFORM makrosuna FILE_SYSTEM_PLATFORM atandı ise</b>, 
+				FILE_ROOT makrosuna kök klasörün adresini giriniz.<br/><br/>
+				Örnek:
+				<pre>define("FILE_ROOT", "/home/mekya/public_html/test");</pre>
+				Yukarıda belirtilen klasörün web sunucu kullanıcısının okuma ve yazma
+				hakkının olduğuna emin olunuz.<br/><br/>
+				
+				<b>Eğer TARGET_PLATFORM makrsouna DATABASE_PLATFORM atandı ise</b>, 
+				Veritabanı parametrelerini(kullanıcı adı, şifre vb.) yine 'includes/config.php' dosyası içine yazınız,
 				ayrıca TREE_TABLE_PREFIX makrosunu değiştirerek oluşturacağınız tablonun
 				adının ön ekini değiştirmiş olursunuz. 
 				TREE_TABLE_PREFIX makrosunun varsayılan değeri 'tree' dir. 
@@ -114,8 +130,7 @@ PRIMARY KEY  (`Id`)
 		<div class='header'>Destek</div>
 		<div class='content'>
 			Eğer bu yazılım kullanırken veya değiştirirken desteğe ihtiyaç duyarsanız, 
-			elimden geldiğince yardım etmekten mutluluk duyarım.
-			Bu yüzden istediğiniz zaman <a href='mailto:ahmetmermerkaya@gmail.com'>iletişime</a> geçebilirsiniz				  								 
+			elimizden geldiğince yardım etmekten mutluluk duyarız.							  								 
 		</div>
 	</div>
 	<div class='section'>
@@ -134,18 +149,12 @@ PRIMARY KEY  (`Id`)
 		</div>
 	</div>		
 	<div class='section'>
-		<div class='header'>Yazar</div>
+		<div class='header'>Yazarlar</div>
 		<div class='content'>
-			<a href='mailto:ahmetmermerkaya@gmail.com'>Ahmet Oguz Mermerkaya</a>							 				 
+			Ozan Köroğlu - <a href='mailto:koroglu.ozan@gmail.com'>koroglu.ozan@gmail.com</a>  <br/>
+			Ahmet Oğuz Mermerkaya - <a href='mailto:ahmetmermerkaya@gmail.com'>ahmetmermerkaya@gmail.com</a>							 				 
 		</div>
-	</div>			
-	<div class='section' align='center'>
-		<a href='http://www.e-yillik.net/' class='content'>www.e-yillik.net</a>
-	</div>			
+	</div>		
 </div> 
-<br/>
-<div class='section' align='center'>
-	<a class='content'>mekya</a>
-</div>	
 </body>
 </html>
