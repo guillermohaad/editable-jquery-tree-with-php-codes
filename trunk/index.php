@@ -28,12 +28,10 @@ $treeElements = $treeManager->getElementList(null, "manageStructure.php");
 <script type="text/javascript" src="js/jquery/jquery-pack.js"></script>
 <script type="text/javascript" src="js/jquery/plugins/simpleTree/jquery.simple.tree.js"></script>
 <script type="text/javascript" src="js/langManager.js" ></script>
-
 <script type="text/javascript" src="js/treeOperations.js"></script>
 <script type="text/javascript" src="js/init.js"></script>
 </head>
 <body>
-
 <div class="contextMenu" id="myMenu1">	
 		<li id="addFolder">
 			<img src="js/jquery/plugins/simpleTree/images/folder_add.png" /> </li>
@@ -57,7 +55,7 @@ $treeElements = $treeManager->getElementList(null, "manageStructure.php");
 			</ul>						
 	</div>	
 	<div><a href='doc/editable_jquery_tree_with_php_codes_doc_tr.html'>Döküman</a>
-		<a href='doc/editable_jquery_tree_with_php_codes_doc_en.html'>Documents</a>
+		<a href='doc/editable_jquery_tree_with_php_codes_doc_en.html'>Document</a>
 	</div>
 </div> 
 <div id='processing'></div>
