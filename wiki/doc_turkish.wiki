@@ -1,17 +1,37 @@
 = Düzenlenebilir jquery ağaç yapısı - PHP Kodlu  =
 Bu yazılım bir ağaç yapısıdır ve sahip olduğu eleman ekleme,
 isim değiştirme, sürükle-bırak ve silme işlemlerini sunucuya 
-ajax istekleri göndererek yapar. Ajax isteklerinin uygun
-şekilde işlenebilmesi için sunucunun PHP ve MySQL 
-yazılımlarına sahip olması gerekir.
-			<br/>											
+ajax istekleri göndererek yapar. Ağaç yapısındaki
+elemanlar veritabanında olabileceği gibi dosya sistemi üzerinde dosyalar
+ve klasörler de olabilir.Ajax isteklerinin uygun
+şekilde işlenebilmesi için sunucunun PHP ve elemanlar veritabanı üzerinde
+olacaksa MySQL yazılımlarına sahip olması gerekir.
+<br/>											
 Bu yazılım ayrıca <a href='http://jquery.com'>jquery javascript çerçevesini</a>,
-<a href='http://news.kg/wp-content/uploads/tree/'>simple tree eklentisini</a> kullanır.
-                                                                                         
+simple tree eklentisini kullanır.
+<br/>				
+										
+                                                                                        
 == KURULUM ==
-Veritabanı parametrelerini 'includes/config.php' dosyası içine yazınız,
-ayrıca TREE_TABLE_PREFIX makrosunu değiştirerek oluşturacağınız tablonun
-adının ön ekini değiştirmiş olursunuz. TREE_TABLE_PREFIX makrosunun varsayılan değeri 'tree' dir. <br/>
+Hangi platformda çalışacağını 'includes/config.php' dosyasında
+<pre>TARGET_PLATFORM</pre> makrosuna 
+<pre>DATABASE_PLATFORM veya FILE_SYSTEM_PLATFORM</pre> makrolarından
+birini atayarak ayarlayabilirsiniz. <br/><br/>
+Örnek:
+<pre>define ("TARGET_PLATFORM", DATABASE_PLATFORM);</pre>
+				
+*Eğer TARGET_PLATFORM makrosuna FILE_SYSTEM_PLATFORM atandı ise*, 
+FILE_ROOT makrosuna kök klasörün adresini giriniz.
+Örnek:
+<pre>define("FILE_ROOT", "/home/mekya/public_html/test");</pre>
+Yukarıda belirtilen klasörün web sunucu kullanıcısının okuma ve yazma
+hakkının olduğuna emin olunuz.<br/><br/>
+				
+*Eğer TARGET_PLATFORM makrsouna DATABASE_PLATFORM atandı ise* , 
+Veritabanı parametrelerini(kullanıcı adı, şifre vb.) yine 'includes/config.php' dosyası içine yazınız, ayrıca TREE_TABLE_PREFIX makrosunu değiştirerek oluşturacağınız tablonun
+adının ön ekini değiştirmiş olursunuz. <br/>
+TREE_TABLE_PREFIX makrosunun varsayılan değeri 'tree' dir. 
+<br/>
 Tabloyu TREE_TABLE_PREFIX makrosuna göre oluşturun, eğer bu değeri 
 değiştirmedi iseniz aşağıdaki kodu direk kullanabilirsiniz: 
 {{{
@@ -60,8 +80,7 @@ Elemanın yeni ismi açılan kutunun içine yazıldıktan sonra <b>Enter</b> tu�
 
 == Destek == 
 Eğer bu yazılım kullanırken veya değiştirirken desteğe ihtiyaç duyarsanız, 
-lütfen <a href='mailto:ahmetmermerkaya@gmail.com'>iletişime</a> geçmek için çekinmeyiniz,
-elimden geldiğince yardım etmekten mutluluk duyarım.
+elimizden geldiğince yardım etmekten mutluluk duyarız.	
 
 
 == Lisans ==
@@ -73,11 +92,8 @@ Bu yazılım hiç bir şeyi garanti etmez, yazılımı kullanırken bütün
 sorumluluk kullanana aittir.
 Herhangi bir durumda kesinlikle sorumluluk kabul edilmez..
 
-== Yazar == 
-<a href='mailto:ahmetmermerkaya@gmail.com'>Ahmet Oguz Mermerkaya</a><br/>
-
-ahmetmermerkaya@gmail.com
-
-mekya
-
+== Yazarlar == 
+Ozan Köroğlu - <a href='mailto:koroglu.ozan@gmail.com'>koroglu.ozan@gmail.com</a>  <br/>
+Ahmet Oğuz Mermerkaya (mekya) - <a href='mailto:ahmetmermerkaya@gmail.com'>ahmetmermerkaya@gmail.com</a>							 				 
+<br/>	
 <a href='http://www.e-yillik.net/' class='content'>www.e-yillik.net</a>
