@@ -157,7 +157,7 @@ class FileTreeManager implements ITreeManager
 		
 		$newElementId = $destOwnerEl . self::FOLDER_SEPARATOR . $elementName;
 		$out = FAILED;
-		if (file_exists($newFullPath) === true && $fullPath != $newFullPath) {
+		if (file_exists($newFullPath) === true && dirname($fullPath) != dirname($newFullPath)) {
 			$out = FAILED_FILE_WITH_SAME_NAME_EXIST;
 		}
 		else if (rename($fullPath, $newFullPath) == true) {
