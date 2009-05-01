@@ -64,10 +64,12 @@ function TreeOperations()
 		ch[2] = ']';
 		ch[3] = '/';
 		ch[4] = '@';
+		ch[5] = ' ';
 		var i = 0;
-		for (i = 0; i < ch.length; i++) {
+		for (i = 0; i < ch.length; i++) 
+		{
 			str = str.replace(ch[i], '\\' + ch[i]);	
-		}
+		}		
 		return str;
 	}
 //*******************************************************
