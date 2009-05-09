@@ -107,6 +107,6 @@ No responsilibity is taken for any situation.
 
 == Authors == 
 Ozan Koroglu - <a href='mailto:koroglu.ozan@gmail.com'>koroglu.ozan@gmail.com</a> <br/>
-Ahmet Oguz Mermerkaya (mekya) - <a href='mailto:ahmetmermerkaya@gmail.com'>ahmetmermekaya@hotmail.com</a> 							 				 
+Ahmet Oguz Mermerkaya (mekya) - <a href='mailto:ahmetmermerkaya@gmail.com'>ahmetmermekaya@gmail.com</a> 							 				 
 <br/>		
 <a href='http://www.e-yillik.net/' class='content'>www.e-yillik.net</a>
