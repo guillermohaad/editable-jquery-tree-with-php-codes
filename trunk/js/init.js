@@ -11,6 +11,7 @@
  * initialization script 
  */
 var langManager = new languageManager();
+//de for german
 //en for english
 //tr for turkish
 langManager.load("en");  
