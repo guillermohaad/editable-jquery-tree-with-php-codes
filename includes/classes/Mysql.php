@@ -44,7 +44,7 @@ class MySQL
 			return false;
 		}
 		else {
-			mysql_query("set names latin5",$this->dbLink);
+			mysql_query("set names utf8",$this->dbLink);
 			return true;
 		}
 		unset ($this->dbHost, $this->dbUsername, $this->dbPassword, $this->dbName);		
