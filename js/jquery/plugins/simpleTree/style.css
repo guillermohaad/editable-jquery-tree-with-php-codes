@@ -1,8 +1,4 @@
 /* CSS Document */
-body
-{
-	
-}
 .simpleTree
 {	
 	margin:0px;
@@ -32,8 +28,9 @@ body
 }
 .simpleTree .root
 {
+	position: absolute; /* important for Safari Browser on windows */
 	margin-left:-16px;
-	background: url(images/root.gif) no-repeat 10px 0 #ffffff;
+	background: url(images/root.gif) no-repeat 16px 0 #ffffff;
 }
 .simpleTree .line
 {
