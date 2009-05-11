@@ -2,10 +2,7 @@
 
 body {
 	font: normal 13px arial, tahoma, helvetica, sans-serif;
-	min-width:780px;
-	min-height:600px;
-	margin:40px;
-	margin-top:0px;
+
 }
 #processing {
 	position:fixed;
@@ -33,6 +30,12 @@ body {
 	text-align:left;
 	padding:5px;
 }
+
+/* to much space in Internet Explorer 7 */
+*+ html .contextMenu li {
+	padding-bottom: 0;
+}
+
 .contextMenu li:Hover {
 	background-color:#0066CC;
 	color:#FFFFFF;
