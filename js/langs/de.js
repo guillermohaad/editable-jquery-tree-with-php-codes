@@ -12,5 +12,5 @@ addDocMenu:'Seite hinzufügen',
 addFolderMenu:'Ordner hinzufügen',
 editMenu:'editieren',
 deleteMenu:'löschen',
-missionCompleted:'Die Operation wurde erfolgreich abgeschlossen',
+missionCompleted:'Die Operation wurde erfolgreich abgeschlossen'
 });
