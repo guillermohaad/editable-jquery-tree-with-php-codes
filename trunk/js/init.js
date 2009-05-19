@@ -14,25 +14,24 @@ var langManager = new languageManager();
 //de for german
 //en for english
 //tr for turkish
-langManager.load("en");  
+langManager.load("de");  
 
 var treeOps = new TreeOperations();
 
 $(document).ready(function() {
 	
 	// binding menu functions
-	$('#myMenu1 #addDoc').click(function()  {  treeOps.addElementReq(); });									   						    
-	$('#myMenu1 #addFolder').click(function()  {  treeOps.addElementReq(true); });	
-	$('#myMenu1 #edit, #myMenu2 #edit').click(function() {  treeOps.updateElementNameReq(); });
-	$('#myMenu1 #delete, #myMenu2 #delete').click(function() {  treeOps.deleteElementReq(); });
+	$('#myMenu1 .addDoc').click(function()  {  treeOps.addElementReq(); });									   						    
+	$('#myMenu1 .addFolder').click(function()  {  treeOps.addElementReq(true); });	
+	$('#myMenu1 .edit, #myMenu2 .edit').click(function() {  treeOps.updateElementNameReq(); });
+	$('#myMenu1 .delete, #myMenu2 .delete').click(function() {  treeOps.deleteElementReq(); });
 	
 	
 	// setting menu texts 
-	$('#myMenu1 #addDoc').append(langManager.addDocMenu);
-	$('#myMenu1 #addFolder').append(langManager.addFolderMenu);
-	$('#myMenu1 #edit, #myMenu2 #edit').append(langManager.editMenu);
-	$('#myMenu1 #delete, #myMenu2 #delete').append(langManager.deleteMenu);
-	
+	$('#myMenu1 .addDoc').append(langManager.addDocMenu);
+	$('#myMenu1 .addFolder').append(langManager.addFolderMenu);
+	$('#myMenu1 .edit, #myMenu2 .edit').append(langManager.editMenu);
+	$('#myMenu1 .delete, #myMenu2 .delete').append(langManager.deleteMenu);
 		
 	// initialization of tree
 	simpleTree = $('.simpleTree').simpleTree({
@@ -93,12 +92,12 @@ $(document).ready(function() {
 			}
 			else {
 				if (className.indexOf('root') >= 0) {
-					$('#myMenu1 #edit, #myMenu1 #delete').hide();
+					$('#myMenu1 .edit, #myMenu1 .delete').hide();
 				}
 				$('#myMenu1').css('top',event.pageY).css('left',event.pageX).show();
 			}
 			
-			$('*').click(function() { $('#myMenu1, #myMenu2').hide(); $('#myMenu1 #edit, #myMenu1 #delete').show(); });
+			$('*').click(function() { $('#myMenu1, #myMenu2').hide(); $('#myMenu1 .edit, #myMenu1 .delete').show(); });
 			
 		},
 		animate:true
