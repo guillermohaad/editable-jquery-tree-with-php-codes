@@ -25,7 +25,7 @@ $treeElements = $treeManager->getElementList(null, "manageStructure.php");
 <title>Editable jquery tree with php codes</title>
 <link rel="stylesheet" type="text/css" href="js/jquery/plugins/simpleTree/style.css" />
 <link rel="stylesheet" type="text/css" href="style.css" />
-<script type="text/javascript" src="js/jquery/jquery-pack.js"></script>
+<script type="text/javascript" src="js/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery/plugins/simpleTree/jquery.simple.tree.js"></script>
 <script type="text/javascript" src="js/langManager.js" ></script>
 <script type="text/javascript" src="js/treeOperations.js"></script>
@@ -33,15 +33,15 @@ $treeElements = $treeManager->getElementList(null, "manageStructure.php");
 </head>
 <body>
 <div class="contextMenu" id="myMenu1">	
-		<li id="addFolder">
+		<li class="addFolder">
 			<img src="js/jquery/plugins/simpleTree/images/folder_add.png" /> </li>
-		<li id="addDoc"><img src="js/jquery/plugins/simpleTree/images/page_add.png" /> </li>	
-		<li id="edit"><img src="js/jquery/plugins/simpleTree/images/folder_edit.png" /> </li>
-		<li id="delete"><img src="js/jquery/plugins/simpleTree/images/folder_delete.png" /> </li>	
+		<li class="addDoc"><img src="js/jquery/plugins/simpleTree/images/page_add.png" /> </li>	
+		<li class="edit"><img src="js/jquery/plugins/simpleTree/images/folder_edit.png" /> </li>
+		<li class="delete"><img src="js/jquery/plugins/simpleTree/images/folder_delete.png" /> </li>	
 </div>
 <div class="contextMenu" id="myMenu2">
-		<li id="edit"><img src="js/jquery/plugins/simpleTree/images/page_edit.png" /> </li>
-		<li id="delete"><img src="js/jquery/plugins/simpleTree/images/page_delete.png" /> </li>
+		<li class="edit"><img src="js/jquery/plugins/simpleTree/images/page_edit.png" /> </li>
+		<li class="delete"><img src="js/jquery/plugins/simpleTree/images/page_delete.png" /> </li>
 </div>
 
 <div id="wrap">
