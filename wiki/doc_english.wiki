@@ -46,12 +46,12 @@ Then create table according to TREE_TABLE_PREFIX macro
 
 == Features ==  
 === Add item ===   
-<img src="http://sites.google.com/site/editablejquerytree/Home/addElement.jpg?attredirects=0"  style="float:left;"/>
+<img src="http://farm3.static.flickr.com/2461/3797379229_73d6dd686a.jpg"  style="float:left;"/>
 <br/>
 Right click a item to open the menu, then click
 'Add File' or 'Add Folder' to add a child item under the right clicked item     <br />
-<div  style="clear:both"><img src="http://sites.google.com/site/editablejquerytree/Home/addElementText.jpg?attredirects=0" style="float:left;"/> 
-<img src="http://sites.google.com/site/editablejquerytree/Home/elementAdded.jpg?attredirects=0"  style="float:left;"/>
+<div  style="clear:both"><img src="http://farm3.static.flickr.com/2651/3797377321_38287fa01e.jpg" style="float:left;"/> 
+<img src="http://farm4.static.flickr.com/3584/3798193088_a555942e63_m.jpg"  style="float:left;"/>
 <br/>
 Enter the new item's name into the text field, 
 then press <b>Enter</b> to send an ajax request to server and complete the operation or 
@@ -59,8 +59,8 @@ press <b>Esc</b> to cancel the operation.
 
 
 === Delete item ===
-<img src="http://sites.google.com/site/editablejquerytree/Home/deleteElement.jpg?attredirects=0"  style="float:left;"/>
-<img src="http://sites.google.com/site/editablejquerytree/Home/deleteElementLast.jpg?attredirects=0"  style="float:left;"/>
+<img src="http://farm4.static.flickr.com/3505/3797377485_54b38d9b55.jpg"  style="float:left;"/>
+<img src="http://farm4.static.flickr.com/3583/3797377947_d59031e3a3.jpg"  style="float:left;"/>
 <br/>
 Right click a item to open the menu, then click
 'Delete', it will ask whether you are sure to delete the item,
@@ -71,20 +71,20 @@ will be deleted recursively.
 
 
 === Change the position of an item (Drag & Drop) ===
-<img src="http://sites.google.com/site/editablejquerytree/Home/dragElement.jpg?attredirects=0"  style="float:left;"/> 
-<img src="http://sites.google.com/site/editablejquerytree/Home/dropElement.jpg?attredirects=0"  style="float:left;"/>
+<img src="http://farm4.static.flickr.com/3428/3798194474_33811a50f8.jpg"  style="float:left;"/> 
+<img src="http://farm3.static.flickr.com/2458/3797378615_f7646ab717.jpg"  style="float:left;"/>
 <br/>
 Use drag & drop method to change the position and order of an item.
 
 
 === Change the name of an item ===
-<img src="http://sites.google.com/site/editablejquerytree/Home/editElement.jpg?attredirects=0"  style="float:left;"/>
+<img src="http://farm4.static.flickr.com/3517/3797378317_8eb784bd92.jpg"  style="float:left;"/>
 <br/>
 Right click a item to open the menu, then click
 'Edit'.
 <br/>
-<img src="http://sites.google.com/site/editablejquerytree/Home/addElementText.jpg?attredirects=0"  style="float:left;"/> 
-<img src="http://sites.google.com/site/editablejquerytree/Home/elementAdded.jpg?attredirects=0"  style="float:left;"/>
+<img src="http://farm3.static.flickr.com/2576/3798223826_479d20d779.jpg"  style="float:left;"/> 
+<img src="http://farm3.static.flickr.com/2632/3798223620_0234323b5d.jpg"  style="float:left;"/>
 <br/>
 Enter the item's new name into the text field, 
 then press <b>Enter</b> to send an ajax request and complete the operation or
@@ -107,6 +107,8 @@ No responsilibity is taken for any situation.
 
 == Authors == 
 Ozan Koroglu - <a href='mailto:koroglu.ozan@gmail.com'>koroglu.ozan@gmail.com</a> <br/>
-Ahmet Oguz Mermerkaya (mekya) - <a href='mailto:ahmetmermerkaya@gmail.com'>ahmetmermerkaya@gmail.com</a> 							 				 
+Ahmet Oguz Mermerkaya (mekya) - <a href='mailto:ahmetmermerkaya@gmail.com'>ahmetmermerkaya@gmail.com</a>
+
+( Any invitation on linkedin.com is welcome http://www.linkedin.com/in/ahmetoguzmermerkaya ) 							 				 
 <br/>		
 <a href='http://www.e-yillik.net/' class='content'>www.e-yillik.net</a>
