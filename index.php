@@ -48,9 +48,7 @@ $treeElements = $treeManager->getElementList(null, "manageStructure.php");
 	<div id="annualWizard">	
 			<ul class="simpleTree" id='pdfTree'>		
 					<li class="root" id='<?php echo $treeManager->getRootId();  ?>'><span><?php echo $rootName; ?></span>
-						<ul>
-							<?php echo $treeElements; ?>					
-						</ul>				
+						<ul><?php echo $treeElements; ?></ul>				
 					</li>
 			</ul>						
 	</div>	
