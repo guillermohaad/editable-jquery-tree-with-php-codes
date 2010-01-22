@@ -227,6 +227,12 @@ $.fn.simpleTree = function(opt){
 			  .filter(':last-child')
 			  .after('<li class="line-last"></li>');
 			
+			// this is done for the bug that if there is no item under root and after 
+			// creating items, no item can be dragged to just under the root
+			if (obj == ROOT && $('ul',obj).text() == "") {				
+				$("ul", obj).html('<li class="line-last"></li>');
+				
+			}
 			
 			TREE.setEventLine($('.line, .line-last', obj));
 		};
