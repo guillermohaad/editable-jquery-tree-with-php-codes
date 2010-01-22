@@ -165,7 +165,7 @@ function TreeOperations()
 		{
 			// Klas�r�n alti bosken altina yeni eleman eklenemiyordu bu y�zden asagidaki kodlar yazildi.
 			// eger IE de fazladan g�z�ken dosyanin g�z�kmemesi i�in son iki silme (remove) satiri eklendi.
-			$('ul', treeOps.trGetSelected()).html('<li class="line"> </li><li class="doc-last"></li><li class="line-last"/>');
+			$('ul', treeOps.trGetSelected()).html('<li class="line">&nbsp;</li><li class="doc-last"></li><li class="line-last"/>');
 			
 			simpleTree.get(0).addNode("newElement", "name", null);
 			treeOps.trGetSelected().prev().remove();
