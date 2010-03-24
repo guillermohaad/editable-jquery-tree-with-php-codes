@@ -14,7 +14,7 @@ class FileTreeManager implements ITreeManager
 {
 	private $fileRoot;
 	
-	const FOLDER_SEPARATOR = "***";
+	const FOLDER_SEPARATOR = "FOLDER_SEPARATOR";
 	
 	const DEFAULT_FOLDER_SEPARATOR = "/";
 	
