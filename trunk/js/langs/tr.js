@@ -12,5 +12,7 @@ addDocMenu:'Dosya ekle',
 addFolderMenu:'Klas\u00F6r ekle',
 editMenu:'D\u00FCzenle',
 deleteMenu:'Sil',
-missionCompleted:'\u0130\u015Flem ba\u015Far\u0131yla tamamland\u0131.'
+missionCompleted:'\u0130\u015Flem ba\u015Far\u0131yla tamamland\u0131.',
+expandAll:'Klasörleri aç',
+collapseAll:'Klasörleri kapat'
 });

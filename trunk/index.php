@@ -37,7 +37,9 @@ $treeElements = $treeManager->getElementList(null, "manageStructure.php");
 			<img src="js/jquery/plugins/simpleTree/images/folder_add.png" /> </li>
 		<li class="addDoc"><img src="js/jquery/plugins/simpleTree/images/page_add.png" /> </li>	
 		<li class="edit"><img src="js/jquery/plugins/simpleTree/images/folder_edit.png" /> </li>
-		<li class="delete"><img src="js/jquery/plugins/simpleTree/images/folder_delete.png" /> </li>	
+		<li class="delete"><img src="js/jquery/plugins/simpleTree/images/folder_delete.png" /> </li>
+		<li class="expandAll"><img src="js/jquery/plugins/simpleTree/images/expand.png"/> </li>
+		<li class="collapseAll"><img src="js/jquery/plugins/simpleTree/images/collapse.png"/> </li>	
 </div>
 <div class="contextMenu" id="myMenu2">
 		<li class="edit"><img src="js/jquery/plugins/simpleTree/images/page_edit.png" /> </li>
@@ -53,7 +55,7 @@ $treeElements = $treeManager->getElementList(null, "manageStructure.php");
 			</ul>						
 	</div>	
 	<div><a href='doc/editable_jquery_tree_with_php_codes_doc_tr.html'>Döküman</a>
-		<a href='doc/editable_jquery_tree_with_php_codes_doc_en.html'>Document</a>
+		<a href='doc/editable_jquery_tree_with_php_codes_doc_en.html'>Document</a>		
 	</div>
 </div> 
 <div id='processing'></div>

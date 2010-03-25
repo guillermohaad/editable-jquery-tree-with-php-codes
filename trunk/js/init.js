@@ -25,6 +25,8 @@ $(document).ready(function() {
 	$('#myMenu1 .addFolder').click(function()  {  treeOps.addElementReq(true); });	
 	$('#myMenu1 .edit, #myMenu2 .edit').click(function() {  treeOps.updateElementNameReq(); });
 	$('#myMenu1 .delete, #myMenu2 .delete').click(function() {  treeOps.deleteElementReq(); });
+	$('#myMenu1 .expandAll').click(function (){ treeOps.expandAll($('.simpleTree > .root > ul')); });
+	$('#myMenu1 .collapseAll').click(function (){ treeOps.collapseAll(); });
 	
 	
 	// setting menu texts 
@@ -32,6 +34,9 @@ $(document).ready(function() {
 	$('#myMenu1 .addFolder').append(langManager.addFolderMenu);
 	$('#myMenu1 .edit, #myMenu2 .edit').append(langManager.editMenu);
 	$('#myMenu1 .delete, #myMenu2 .delete').append(langManager.deleteMenu);
+	$('#myMenu1 .expandAll').append(langManager.expandAll);
+	$('#myMenu1 .collapseAll').append(langManager.collapseAll);
+	
 		
 	// initialization of tree
 	simpleTree = $('.simpleTree').simpleTree({
@@ -93,6 +98,10 @@ $(document).ready(function() {
 			else {
 				if (className.indexOf('root') >= 0) {
 					$('#myMenu1 .edit, #myMenu1 .delete').hide();
+					$('#myMenu1 .expandAll, #myMenu1 .collapseAll').show();
+				}
+				else {
+					$('#myMenu1 .expandAll, #myMenu1 .collapseAll').hide();
 				}
 				$('#myMenu1').css('top',event.pageY).css('left',event.pageX).show();
 			}
