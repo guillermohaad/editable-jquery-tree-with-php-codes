@@ -299,6 +299,26 @@ function TreeOperations()
 							);
 		
 	}
+/**********************************
+ * Expand All
+***********************************/	 
+	this.expandAll = function (obj)
+	    {
+			var folder = $('.folder-close, .folder-close-last',obj);				
+			
+			$(folder).each(function(){
+				simpleTree.get(0).nodeToggle(this, treeOps.expandAll);
+			});				
+		}
+/**********************************
+ * Collapse All
+***********************************/	
+	this.collapseAll = function (){
+			$('.folder-open, .folder-open-last').each(function(){
+				simpleTree.get(0).nodeToggle(this);
+			});
+	}
+
 //*******************************************************
 	this.trReload = function()
 	{

@@ -12,5 +12,7 @@ addDocMenu:'Add file',
 addFolderMenu:'Add folder',
 editMenu:'Edit',
 deleteMenu:'Delete',
-missionCompleted:'Request is completed succesfully.'
+missionCompleted:'Request is completed succesfully.',
+expandAll:'Expand all',
+collapseAll:'Collapse all'
 });
