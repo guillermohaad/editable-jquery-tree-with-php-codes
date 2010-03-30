@@ -44,7 +44,13 @@ class DemoTreeManager implements ITreeManager
 						."</li>";
  		}
 		else {
-	 		$out = "<li class='text' id='". rand(0, 10000) ."'><span>file-1</span></li><li class='text' id='". rand(0, 10000) ."'>".
+	 		$out = "<li class='text' id='".rand(0, 10000)."'>"
+						."<span>Folder-1</span>"
+						."<ul>"
+							."<li class='text' id='". rand(0, 10000) ."'><span>file-1</span></li>"
+						."</ul>"
+					."</li>"
+					."<li class='text' id='". rand(0, 10000) ."'><span>file-1</span></li><li class='text' id='". rand(0, 10000) ."'>".
 					"<span>file-2</span></li><li class='text' id='". rand(0, 10000) ."'><span>file-3</span></li>";
 		}
 		return $out; 		
