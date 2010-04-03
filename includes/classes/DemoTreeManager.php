@@ -44,35 +44,38 @@ class DemoTreeManager implements ITreeManager
 						."</li>";
  		}
 		else {
-	 		$out = "<li class='text' id='".rand(0, 10000)."'>"
-						."<span>Folder-1</span>"
-						."<ul>"
-							."<li class='text' id='". rand(0, 10000) ."'><span>file-1</span></li>"
-						."</ul>"
-					."</li>"
-					."<li class='text' id='". rand(0, 10000) ."'><span>file-1</span></li><li class='text' id='". rand(0, 10000) ."'>".
-					"<span>file-2</span></li><li class='text' id='". rand(0, 10000) ."'><span>file-3</span></li>";
+			if ($ownerEl == 4) {
+				$index = 20;
+			}
+			else if($ownerEl = 12) {
+				$index = 30;
+			}
+			else if($ownerEl = 13) {
+				$index = 40;
+			}
+	 		$out = "<li class='text' id='". $index++ ."'><span>file-1</span></li><li class='text' id='". $index++ ."'>".
+					"<span>file-2</span></li><li class='text' id='". $index++ ."'><span>file-3</span></li>";
 		}
 		return $out; 		
  	}
  	
  
  	
- 	public function updateElementName($name, $elementId) {
+ 	public function updateElementName($name, $elementId, $ownerEl) {
  		$out = '({"elementName":"'.$name.'", "elementId":"'.$elementId.'"})';		
 		return $out;
  	} 	
  	
  
  
- 	public function deleteElement($elementId, &$index = 0){
+ 	public function deleteElement($elementId, &$index = 0, $ownerEl){
  		$out = SUCCESS;			
 		return $out; 		
  	} 	
  
  
  
- 	public function changeOrder($elementId, $destOwnerEl, $destPosition){
+ 	public function changeOrder($elementId, $oldOwnerEl, $destOwnerEl, $destPosition){
  		$out = '({"oldElementId":"'.$elementId.'", "elementId":"'. $elementId .'"})';	
 		return $out;  		
  	}	
