@@ -58,18 +58,26 @@ function TreeOperations()
 	}
 //********************************************************
 	this.escapeChars = function(str) {	
-		var ch = Array();	
-		ch[0] = '.';
-		ch[1] = '[';
-		ch[2] = ']';
-		ch[3] = '/';
-		ch[4] = '@';
-		ch[5] = ' ';
-		var i = 0;
-		for (i = 0; i < ch.length; i++) 
-		{
-			str = str.replace(ch[i], '\\' + ch[i]);	
-		}		
+//		var ch = Array();	
+//		ch[0] = '.';
+//		ch[1] = '[';
+//		ch[2] = ']';
+//		ch[3] = '/';
+//		ch[4] = '@';
+//		ch[5] = ' ';
+//		var i = 0;
+//		for (i = 0; i < ch.length; i++) 
+//		{
+//			str = str.replace(ch[i], '\\' + ch[i]);
+//		}		
+		
+		str = str.replace(/\./g, '\\.');
+		str = str.replace(/\[/g, '\\[');
+		str = str.replace(/\]/g, '\\]');
+		str = str.replace(/\//g, '\\/');
+		str = str.replace(/ /g, '\\ ');
+		str = str.replace(/,/g, '\\,');
+		
 		return str;
 	}
 //*******************************************************
@@ -245,7 +253,9 @@ function TreeOperations()
 		if (confirm(langManager.deleteConfirm))
 		{
 			treeOps.treeBusy = true;
-			var params = "action=deleteElement&elementId="+treeOps.trGetSelected().attr('id');
+			var ownerEl = treeOps.trGetSelected().parent().parent().attr('id');
+		 	var params = "action=deleteElement&elementId="+treeOps.trGetSelected().attr('id')
+		 				 + "&ownerEl=" + ownerEl;
 			treeOps.ajaxReq(params, structureManagerURL, treeOps.trDeleteElement);
 		}	
 	}
@@ -285,8 +295,9 @@ function TreeOperations()
 								 function(evt)
 								 {
 									 if (evt.keyCode == 13) { //pressed enter
-										var name = $('#inputText').attr('value'); 										
-									 	var params = "action=updateElementName&name="+name+"&elementId="+elementId;
+										var name = $('#inputText').attr('value'); 	
+										var ownerEl = $('#inputText').parent().parent().parent().attr('id');
+									 	var params = "action=updateElementName&name="+name+"&elementId="+elementId+"&ownerEl="+ownerEl;
 									 	
 										treeOps.ajaxReq (params, structureManagerURL, treeOps.trUpdateElementName);										
 									 }

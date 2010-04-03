@@ -17,7 +17,6 @@ var langManager = new languageManager();
 langManager.load("en");  
 
 var treeOps = new TreeOperations();
-
 $(document).ready(function() {
 	
 	// binding menu functions
@@ -41,6 +40,10 @@ $(document).ready(function() {
 	// initialization of tree
 	simpleTree = $('.simpleTree').simpleTree({
 		autoclose: false,
+		/**
+		 * restore tree state according the cookies it stored.
+		 */
+		restoreTreeState: true,
 		
 		/**
 		 * Callback function is called when one item is clicked
@@ -58,8 +61,11 @@ $(document).ready(function() {
 		afterMove:function(destination, source, pos) {
 		//	alert("destination-"+destination.attr('id')+" source-"+source.attr('id')+" pos-"+pos);	
 			if (dragOperation == true) 
-			{
-				var params = "action=changeOrder&elementId="+source.attr('id')+"&destOwnerEl="+destination.attr('id')+"&position="+pos;
+			{				
+				
+				var params = "action=changeOrder&elementId="+source.attr('id')+"&destOwnerEl="+destination.attr('id')+
+							 "&position="+pos + "&oldOwnerEl=" + simpleTree.get(0).ownerElOfDraggingItem;
+				
 				treeOps.ajaxReq(params, structureManagerURL, null, function(result)
 				{						
 					treeOps.treeBusy = false;
