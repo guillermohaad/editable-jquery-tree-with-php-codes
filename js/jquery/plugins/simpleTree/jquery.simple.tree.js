@@ -42,6 +42,10 @@ $.fn.simpleTree = function(opt){
 		var dragNode_source = false;
 		var dragDropTimer = false;
 		var ajaxCache = Array();
+		var ownerElOfDraggingItem;
+		var restoredData;
+		
+		
 
 		TREE.option = {
 			drag:		true,
@@ -54,7 +58,9 @@ $.fn.simpleTree = function(opt){
 			afterDblClick:	false,
 			// added by Erik Dohmen (2BinBusiness.nl) to make context menu cliks available
 			afterContextMenu:	false,
-			docToFolderConvert:false
+			docToFolderConvert:false,
+			cookieId: "simpletree_cookie",
+			restoreTreeState:true
 		};
 		TREE.option = $.extend(TREE.option,opt);
 		$.extend(this, {getSelected: function(){
@@ -102,6 +108,9 @@ $.fn.simpleTree = function(opt){
 					// changed by mekya there was no callback parameter, above 
 				}
 			}
+			
+			TREE.saveCookie();
+			
 		};
 		TREE.setAjaxNodes = function(node, parentId, callback)
 		{
@@ -181,6 +190,7 @@ $.fn.simpleTree = function(opt){
 				var LI = $(this).parent();
 				if(TREE.option.drag)
 				{
+					TREE.ownerElOfDraggingItem = $(this).parent().parent().parent().attr('id');
 					$('>ul', cloneNode).hide();
 					$('body').append('<div id="drag_container"><ul></ul></div>');
 					$('#drag_container').hide().css({opacity:'0.8'});
@@ -196,8 +206,9 @@ $.fn.simpleTree = function(opt){
 				}
 				TREE.eventDestroy();
 			});
+
 			
-			
+						
 			// changed by mekya 'li>span' converted to 'li'
 			$('li', obj).each(function(i){
 				var className = this.className;
@@ -205,11 +216,18 @@ $.fn.simpleTree = function(opt){
 				var cloneNode=false;
 				var LI = this;
 				var childNode = $('>ul',this);
+				
 				if(childNode.size()>0){
 					var setClassName = 'folder-';
-					if(className && className.indexOf('open')>=0){
+					var toggleNode = false;
+					if( (className && className.indexOf('open')>=0) ||
+						( TREE.option.restoreTreeState == true && TREE.restoredData != null && -1 != $.inArray( $(this).attr('id'), TREE.restoredData )) 
+					  )
+					{
 						setClassName=setClassName+'open';
-						open=true;
+						open=true;				
+						toggleNode = true;						
+						
 					}else{
 						setClassName=setClassName+'close';
 					}
@@ -218,6 +236,11 @@ $.fn.simpleTree = function(opt){
 					if(!open || className.indexOf('ajax')>=0)childNode.hide();
 
 					TREE.setTrigger(this);
+					
+					if (toggleNode == true) {
+						TREE.nodeToggle(this);
+					}
+					
 				}else{
 					var setClassName = 'doc';
 					this.className = setClassName + ($(this).is(':last-child')? '-last':'');
@@ -318,6 +341,8 @@ $.fn.simpleTree = function(opt){
 		TREE.dragEnd = function(){
 			if(dragDropTimer) clearTimeout(dragDropTimer);
 			TREE.eventDestroy();
+			
+			TREE.saveCookie();
 		};
 		TREE.setEventLine = function(obj){
 			obj.mouseover(function(){
@@ -447,6 +472,7 @@ $.fn.simpleTree = function(opt){
 			{
 				callback(dragNode_destination, dragNode_source);
 			}
+			TREE.saveCookie();
 		};
 		TREE.delNode = function(callback)
 		{
@@ -459,10 +485,15 @@ $.fn.simpleTree = function(opt){
 			{
 				callback(dragNode_destination);
 			}
+			TREE.saveCookie();
 		};
 
 		TREE.init = function(obj)
 		{
+			TREE.restoredData = null;
+			if ($.cookie && $.cookie(TREE.option.cookieId) != null){
+				TREE.restoredData = $.cookie( TREE.option.cookieId ).split(',');
+			}
 			TREE.setTreeNodes(obj, false);
 		};
 		
@@ -511,6 +542,7 @@ $.fn.simpleTree = function(opt){
 				mousePressed = true;
 				cloneNode = $(this).parent().clone();
 				var LI = $(this).parent();
+				TREE.ownerElOfDraggingItem = $(this).parent().parent().parent().attr('id');
 				if(TREE.option.drag)
 				{
 					$('>ul', cloneNode).hide();
@@ -539,7 +571,6 @@ $.fn.simpleTree = function(opt){
 				var childNode = $('>ul',this);
 				
 				if(childNode.size()>0){
-				
 					/*
 					var setClassName = 'folder-';
 					if(className && className.indexOf('open')>=0){
@@ -568,6 +599,25 @@ $.fn.simpleTree = function(opt){
 			
 			
 			//TREE.setEventLine($('.line, .line-last', obj));
+		};
+		
+		
+		/**
+		* Any node that is visible gets its ID stuffed into the cookie
+		* Requires jquery.cookie.js plugin
+		*/
+		TREE.saveCookie = function saveCookie()
+		{
+			if (TREE.option.restoreTreeState == true) {
+				var i = 0;
+				var data = [];
+				$('.folder-open, .folder-open-last', ROOT).each(function(){
+					data[i++] = $(this).attr('id');
+				});					
+			
+			//	No error if jQ cookie plugin is missing
+				if ( $.cookie ) $.cookie( TREE.option.cookieId, data.join(","), { expires:15 });
+			}
 		};
 	
 		
