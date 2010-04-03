@@ -65,12 +65,13 @@ switch($action)
     	 * Changing element name
     	 */
 		if (isset($_POST['name']) && !empty($_POST['name']) &&
-		    isset($_POST['elementId']) && !empty($_POST['elementId']))
+		    isset($_POST['elementId']) && !empty($_POST['elementId']) &&
+		    isset($_POST['ownerEl']) && !empty($_POST['ownerEl']))
 		{			
 			$name = checkVariable($_POST['name']);
 			$elementId = checkVariable($_POST['elementId']); 			
-		
-			$out = $treeManager->updateElementName($name, $elementId);
+			$ownerEl = checkVariable($_POST['ownerEl']);
+			$out = $treeManager->updateElementName($name, $elementId, $ownerEl);
 		}                         
 		else {
 			$out = FAILED;	
@@ -83,11 +84,13 @@ switch($action)
 		/**
 		 * deleting an element and elements under it if exists
 		 */
-		if (isset($_POST['elementId']) && !empty($_POST['elementId']))
+		if (isset($_POST['elementId']) && !empty($_POST['elementId']) &&
+		    isset($_POST['ownerEl']) && !empty($_POST['ownerEl']))
 		{
         	$elementId =  checkVariable($_POST['elementId']);	 
-        	 			 
-			$out = $treeManager->deleteElement($elementId);             
+        	$ownerEl = checkVariable($_POST['ownerEl']); 			 
+        	$index = 0;
+			$out = $treeManager->deleteElement($elementId, &$index, $ownerEl);             
 	    }
         else {
 			$out = FAILED;	
@@ -101,14 +104,16 @@ switch($action)
 		 */
 		if ((isset($_POST['elementId']) && $_POST['elementId'] != NULL) &&
 			(isset($_POST['destOwnerEl']) && $_POST['destOwnerEl'] != NULL) &&
-			(isset($_POST['position']) && $_POST['position'] != NULL) 
+			(isset($_POST['position']) && $_POST['position'] != NULL) &&
+			(isset($_POST['oldOwnerEl']) && $_POST['oldOwnerEl'] != NULL) 
 			)			
 		{			
+			$oldOwnerEl = checkVariable($_POST['oldOwnerEl']);
 			$elementId = checkVariable($_POST['elementId']);
 			$destOwnerEl = checkVariable($_POST['destOwnerEl']);
 			$position = (int) checkVariable($_POST['position']);
 		
-			$out = $treeManager->changeOrder($elementId, $destOwnerEl, $position);
+			$out = $treeManager->changeOrder($elementId, $oldOwnerEl, $destOwnerEl, $position);
 		}			
 		else{		
 			$out = FAILED;

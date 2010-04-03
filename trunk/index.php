@@ -26,6 +26,7 @@ $treeElements = $treeManager->getElementList(null, "manageStructure.php");
 <link rel="stylesheet" type="text/css" href="js/jquery/plugins/simpleTree/style.css" />
 <link rel="stylesheet" type="text/css" href="style.css" />
 <script type="text/javascript" src="js/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery/plugins/jquery.cookie.js"></script>
 <script type="text/javascript" src="js/jquery/plugins/simpleTree/jquery.simple.tree.js"></script>
 <script type="text/javascript" src="js/langManager.js" ></script>
 <script type="text/javascript" src="js/treeOperations.js"></script>
