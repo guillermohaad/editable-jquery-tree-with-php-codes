@@ -46,7 +46,7 @@
  	* @returns
  	*		String, if string equal to FAILED macro, it means operation failed.				
  	*/
- 	public function updateElementName($name, $elementId);
+ 	public function updateElementName($name, $elementId, $ownerEl);
  	
  	
  	
@@ -62,7 +62,7 @@
  	*		String, if string equal to FAILED macro, it means operation failed.	
  	*		if equal to SUCCESS macro, operation is completed succesfully			
  	*/
- 	public function deleteElement($elementId, &$index = 0);
+ 	public function deleteElement($elementId, &$index = 0, $ownerEl);
  	
  	
  	
@@ -79,7 +79,7 @@
  	*		if equal to SUCCESS macro, operation is completed succesfully
  	*	
  	*/
- 	public function changeOrder($elementId, $destOwnerEl, $destPosition);
+ 	public function changeOrder($elementId, $oldOwnerEl, $destOwnerEl, $destPosition);
 	
 	
 	/**

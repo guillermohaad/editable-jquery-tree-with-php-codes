@@ -104,17 +104,24 @@ class FileTreeManager implements ITreeManager
  	
  
  	
- 	public function updateElementName($name, $elementId) 
+ 	public function updateElementName($name, $elementId,$ownerEl) 
 	{
-		$realElementId = str_replace(self::FOLDER_SEPARATOR, self::DEFAULT_FOLDER_SEPARATOR, $elementId);
-		$fullPath = $this->getFullPath($realElementId);
+		$ownerEl = str_replace(self::FOLDER_SEPARATOR, self::DEFAULT_FOLDER_SEPARATOR, $ownerEl);
 		
-		$newElementId = substr($realElementId, 0,  strrpos($realElementId, "/")). "/" . $name;
+		$newElementId = $ownerEl . self::DEFAULT_FOLDER_SEPARATOR . $name;
+		
+		$elementId = str_replace(self::FOLDER_SEPARATOR, self::DEFAULT_FOLDER_SEPARATOR, $elementId);
+		$realElementId = $ownerEl 
+						. self::DEFAULT_FOLDER_SEPARATOR 
+						. substr($elementId, strrpos($elementId, "/"), strlen($elementId));
+		
+		$fullPath = $this->getFullPath($realElementId);
+		//$newElementId = substr($realElementId, 0,  strrpos($realElementId, "/")). "/" . $name;
 		
 		$newFullPath = $this->getFullPath($newElementId);
 		
 		$out = FAILED;
-		if (file_exists($newFullPath) === true && $fullPath != $newFullPath) {
+		if (file_exists($newFullPath) === true && dirname($fullPath) != dirname($newFullPath) ) {
 			$out = FAILED_FILE_WITH_SAME_NAME_EXIST;
 		}
 		else if (rename($fullPath, $newFullPath) == true) {
@@ -127,9 +134,13 @@ class FileTreeManager implements ITreeManager
  	
  
  
- 	public function deleteElement($elementId, &$index = 0)
+ 	public function deleteElement($elementId, &$index = 0, $ownerEl)
 	{
+		
 		$elementId = str_replace(self::FOLDER_SEPARATOR, self::DEFAULT_FOLDER_SEPARATOR, $elementId);
+		$elementId = str_replace(self::FOLDER_SEPARATOR, self::DEFAULT_FOLDER_SEPARATOR, $ownerEl)
+					. self::DEFAULT_FOLDER_SEPARATOR 
+					. substr($elementId, strrpos($elementId, "/"), strlen($elementId));
  		$fullPath = $this->getFullPath($elementId);
 		
 		$out = FAILED;
@@ -145,9 +156,13 @@ class FileTreeManager implements ITreeManager
  
  
  
- 	public function changeOrder($elementId, $destOwnerEl, $destPosition)
+ 	public function changeOrder($elementId, $oldOwnerEl, $destOwnerEl, $destPosition)
 	{ 		
-		$realElementId = str_replace(self::FOLDER_SEPARATOR, self::DEFAULT_FOLDER_SEPARATOR, $elementId);
+		$oldOwnerEl = str_replace(self::FOLDER_SEPARATOR, self::DEFAULT_FOLDER_SEPARATOR, $oldOwnerEl);
+		$elementId = str_replace(self::FOLDER_SEPARATOR, self::DEFAULT_FOLDER_SEPARATOR, $elementId);
+		
+		$realElementId = $oldOwnerEl . self::DEFAULT_FOLDER_SEPARATOR 
+						 . substr($elementId, strrpos($elementId, "/"), strlen($elementId));
 		
 		$fullPath = $this->getFullPath($realElementId);		
 		$elementName = substr($realElementId, strrpos($realElementId, "/")+1); // plus 1 not to get / character
@@ -157,13 +172,15 @@ class FileTreeManager implements ITreeManager
 		
 		$newElementId = $destOwnerEl . self::FOLDER_SEPARATOR . $elementName;
 		$out = FAILED;
+
 		if (file_exists($newFullPath) === true && dirname($fullPath) != dirname($newFullPath)) {
 			$out = FAILED_FILE_WITH_SAME_NAME_EXIST;
 		}
 		else if (rename($fullPath, $newFullPath) == true) {
-			$out = '({"oldElementId":"'.$elementId.'", "elementId":"'. $newElementId .'"})';;
+			$out = '({"oldElementId":"'. str_replace(self::DEFAULT_FOLDER_SEPARATOR, self::FOLDER_SEPARATOR,  $elementId)
+					.'", "elementId":"'. $newElementId .'"})';;
 		}		
-				
+						
 		return $out;  		
  	}
 	

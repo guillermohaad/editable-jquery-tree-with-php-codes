@@ -96,7 +96,7 @@
  	}
  	
  	
- 	public function updateElementName($name, $elementId)
+ 	public function updateElementName($name, $elementId, $ownerEl)
 	{
 		$elementId = (int) $elementId;
  		$sql = sprintf('UPDATE ' 
@@ -115,7 +115,7 @@
  	}
  	
  	
-     public function deleteElement($elementId, &$index = 0)
+     public function deleteElement($elementId, &$index = 0, $ownerEl)
      {
      	$elementId = (int) $elementId;
          $sql = sprintf('SELECT
@@ -187,7 +187,7 @@
          return $out;     
      }
  	
- 	public function changeOrder($elementId, $destOwnerEl, $destPosition)
+ 	public function changeOrder($elementId, $oldOwnerEl, $destOwnerEl, $destPosition)
 	{
 		$sql = sprintf('SELECT
 						 		ownerEl, position 
