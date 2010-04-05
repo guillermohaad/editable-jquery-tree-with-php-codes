@@ -1,4 +1,3 @@
-#labels Featured
 = Düzenlenebilir jquery ağaç yapısı - PHP Kodlu  =
 Bu yazılım bir ağaç yapısıdır ve sahip olduğu eleman ekleme,
 isim değiştirme, sürükle-bırak ve silme işlemlerini sunucuya 
