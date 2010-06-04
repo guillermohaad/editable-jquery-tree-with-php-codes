@@ -66,7 +66,7 @@ switch($action)
     	 */
 		if (isset($_POST['name']) && !empty($_POST['name']) &&
 		    isset($_POST['elementId']) && !empty($_POST['elementId']) &&
-		    isset($_POST['ownerEl']) && !empty($_POST['ownerEl']))
+		    isset($_POST['ownerEl']) && $_POST['ownerEl'] != NULL)
 		{			
 			$name = checkVariable($_POST['name']);
 			$elementId = checkVariable($_POST['elementId']); 			
@@ -85,7 +85,7 @@ switch($action)
 		 * deleting an element and elements under it if exists
 		 */
 		if (isset($_POST['elementId']) && !empty($_POST['elementId']) &&
-		    isset($_POST['ownerEl']) && !empty($_POST['ownerEl']))
+		    isset($_POST['ownerEl']) && $_POST['ownerEl'] != NULL)
 		{
         	$elementId =  checkVariable($_POST['elementId']);	 
         	$ownerEl = checkVariable($_POST['ownerEl']); 			 
